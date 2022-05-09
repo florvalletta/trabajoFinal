@@ -1,0 +1,25 @@
+
+<div class="body">
+    <div class="row-mt-5">
+        <div class="col-md-4 mx-auto">
+            
+            <div class="agregar-descripcion">
+                <h1>Agregar Descripción</h1>
+                <img src="../../../assets/img/subir.png" alt="Imagen de un usuario" width="75%"/>    
+        <div class="separacion">
+            <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <mat-form-field class="tamanio" appearance="fill">
+                        <mat-label>Descripción</mat-label>
+                        <input matInput name="descripcion" [(ngModel)]="descripcion" required>
+                      </mat-form-field>    
+            </div>
+            <button type="submit" mat-raised-button class="tamanio tamanioBoton" color="primary" [disabled]="!f.valid">Cargar</button>
+            </form>
+        </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+

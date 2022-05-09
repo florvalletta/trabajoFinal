@@ -1,0 +1,43 @@
+.container-proyectos{
+    margin-top: 10px;
+    text-align: left;
+    max-width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: lightgray;
+    padding: 10px;
+    border-radius:20px;
+}
+.proyectos-suma{
+    position: relative;
+    left:95%;
+    top:-40px;
+}
+.lapiz-proyecto1{
+    position: relative;
+    left:95%;
+    top:-40px;
+}
+.proyecto1-delete{
+    position: relative;
+    left:95%;
+    top:-40px;
+}
+.lapiz-proyecto2{
+    position: relative;
+    left:95%;
+    top:-40px;
+}
+.proyecto2-delete{
+    position: relative;
+    left:95%;
+    top:-40px;
+}
+.proyecto{
+    text-indent:3%;
+}
+
+.logoProyecto {
+    max-width: 100px;
+    max-height: 100px;
+}

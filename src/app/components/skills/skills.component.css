@@ -1,0 +1,35 @@
+.skills{
+    margin-top: 10px;
+    text-align: left;
+    max-width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: lightgray;
+    padding: 10px;
+    border-radius:20px;
+}
+.skills-suma{
+    position: relative;
+    left:95%;
+    top:-40px;
+}
+.lapiz-skill1{
+    position: relative;
+    left:95%;
+    top:-40px;
+}
+.skill1-delete{
+    position: relative;
+    left:95%;
+    top:-40px;
+}
+.lapiz-skill2{
+    position: relative;
+    left:95%;
+    top:-40px;
+}
+.skill2-delete{
+    position: relative;
+    left:95%;
+    top:-40px;
+}

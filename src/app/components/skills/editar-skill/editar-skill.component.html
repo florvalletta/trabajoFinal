@@ -1,0 +1,36 @@
+<h2 mat-dialog-title>Modificar skill</h2>
+<div> <form (ngSubmit)="modificar()" novalidate #f="ngForm">
+<mat-dialog-content>
+    
+        <mat-label for="nombreSkill">Nombre Skill</mat-label>
+        <input matInput type="text" class="form-control" id="nombreSkill" name="nombreSkill" 
+        [(ngModel)]="skill.nombreSkill" required>
+        <mat-label for="valorPorcentaje">Porcentaje alcanzado</mat-label>
+        <input matInput type="number" class="form-control" id="valorPorcentaje" name="valorPorcentaje" 
+        [(ngModel)]="skill.valorPorcentaje" required>
+    
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button">Close</button>
+    <button type="submit" class="mat-raised-button mat-primary" [disabled]="!f.valid">Modificar</button>
+</mat-dialog-actions>
+</form>
+</div>
+<!-- <div class="row-mt-5">
+        <div class="col-md-4 mx-auto">
+            <form (ngSubmit)="modificar()" novalidate #f="ngForm">
+                <div class="form-group">
+                <label for="nombreSkill">Nombre skill</label>
+                <input type="text" class="form-control" id="nombreSkill" name="nombreSkill" 
+                [(ngModel)]="skill.nombreSkill" required>
+                <label for="valorPorcentaje">Porcentaje alcanzado</label>
+                <input type="number" class="form-control" id="valorPorcentaje" name="valorPorcentaje" 
+                [(ngModel)]="skill.valorPorcentaje" required>
+                
+            </div>
+            <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Editar</button>
+            </form>
+        </div>
+    </div> -->
+

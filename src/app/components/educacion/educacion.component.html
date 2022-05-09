@@ -1,0 +1,26 @@
+<div class="container">
+    <div>
+      <mat-toolbar>
+        <span>Educación</span>
+        <span class="example-spacer"></span>
+        <mat-icon routerLink="porfolio/educacion/nueva">add</mat-icon>
+      </mat-toolbar>
+      <mat-card class="tarjeta">
+        <div *ngFor="let educa of educacion">
+          <table class="table table-hover">
+      
+            <tbody>
+              <tr >
+                <td><img class="logoEducacion" src="{{educa.logoEducacion}}"/></td>
+                <td><p>{{educa.titulo}}</p><p>{{educa.institucion}}</p><p>Fecha de inicio: {{educa.fechaInicio}}</p><p>Fecha de fin: {{educa.fechaFin}}</p></td>
+                <td><button mat-button routerLink="porfolio/educacion/modificar/{{educa.id}}"><mat-icon>edit</mat-icon></button></td>
+                <td><button mat-button (click)="borrar(educa.id)"><mat-icon>delete</mat-icon></button></td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </mat-card>
+      
+    </div>
+  </div>

@@ -1,0 +1,27 @@
+<div class="container">
+<div *ngFor="let datos of datosPersonales">
+  <mat-card>
+    <mat-grid-list cols="4" rowHeight="50px">
+       
+      <mat-grid-tile [colspan]="4" [rowspan]="5"><img src="{{datos.fotoPortada}}"></mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="4" class="alineacion"><img src="{{datos.fotoPerfil}}"></mat-grid-tile>
+      <mat-grid-tile [colspan]="2" [rowspan]="1">{{datos.nombre}} {{datos.apellido}}</mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="4"><button mat-button routerLink="porfolio/datosPersonales/modificar/{{datos.id}}"><mat-icon>edit</mat-icon></button><button mat-button (click)="borrar(datos.id)"><mat-icon>delete</mat-icon></button></mat-grid-tile>
+            <mat-grid-tile [colspan]="2" [rowspan]="1">{{datos.puestoActual}}</mat-grid-tile>
+            <mat-grid-tile [colspan]="2" [rowspan]="1">Ubicación</mat-grid-tile>
+            <mat-grid-tile [colspan]="2" [rowspan]="1">Botones</mat-grid-tile>
+                   
+         
+    </mat-grid-list>
+    
+  
+    
+            
+  
+      
+    
+
+  
+
+ 
+    

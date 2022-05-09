@@ -1,0 +1,28 @@
+<div class="container" *ngIf="proyecto">
+    <div class="row-mt-5">
+        <div class="col-md-4 mx-auto">
+            <form (ngSubmit)="modificar()" novalidate #f="ngForm">
+                <div class="form-group">
+                <label for="nombreProyecto">Nombre del Proyecto</label>
+                <input type="text" class="form-control" id="nombreProyecto" name="nombreProyecto" 
+                [(ngModel)]="proyecto.nombreProyecto" required>
+                <label for="fechaRealizacion">Fecha de Realización</label>
+                <input type="text" class="form-control" id="fechaRealizacion" name="fechaRealizacion" 
+                [(ngModel)]="proyecto.fechaRealizacion" required>
+                <label for="linkProyecto">Link al proyecto</label>
+                <input type="text" class="form-control" id="linkProyecto" name="linkProyecto" 
+                [(ngModel)]="proyecto.linkProyecto" required>
+                <label for="imagenProyecto">Imagen del proyecto</label>
+                <input type="text" class="form-control" id="imagenProyecto" name="imagenProyecto" 
+                [(ngModel)]="proyecto.imagenProyecto" required>
+                <label for="descripcionProyecto">Breve descripción del proyecto</label>
+                <input type="text" class="form-control" id="descripcionProyecto" name="descripcionProyecto" 
+                [(ngModel)]="proyecto.descripcionProyecto" required>
+                
+            </div>
+            <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Editar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
