@@ -3,7 +3,7 @@
       <mat-toolbar>
         <span>Experiencia</span>
         <span class="example-spacer"></span>
-        <mat-icon routerLink="porfolio/experiencia/nueva">add</mat-icon>
+        <mat-icon routerLink="/porfolio/experiencia/nueva">add</mat-icon>
       </mat-toolbar>
       <mat-card class="tarjeta">
         <div *ngFor="let exper of experiencia">
@@ -17,7 +17,7 @@
                <p>Fecha de fin: {{exper.fechaFin}}</p> 
                <p>Tareas realizadas: {{exper.descripcion}}</p>
                </td>
-               <td><button mat-button routerLink="experiencia/modificar/{{exper.id}}"><mat-icon>edit</mat-icon></button></td>
+               <td><button mat-button routerLink="/porfolio/experiencia/modificar/{{exper.id}}"><mat-icon>edit</mat-icon></button></td>
                <td><button mat-button (click)="borrar(exper.id)"><mat-icon>delete</mat-icon></button></td>
                
              </tr>

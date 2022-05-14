@@ -34,13 +34,16 @@ export class ModificarProyectoComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params['id'];
     this.proyectosService.modificar(id, this.proyecto).subscribe(
       data => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/porfolio/proyectos']);
       },
       err => {
         alert(err);
-        this.router.navigate(['/']);
+        this.router.navigate(['/porfolio/proyectos']);
       }
     )
   }
 
+  cancelar() {
+    this.router.navigate(['/porfolio/proyectos'])
+  }
 }

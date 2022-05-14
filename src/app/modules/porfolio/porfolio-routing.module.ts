@@ -40,7 +40,7 @@ const routes: Routes = [
     {path: 'proyectos/modificar/:id', component: ModificarProyectoComponent},
     {path: 'skill', component: SkillsComponent},
     {path: 'skill/nueva', component: CargarSkillComponent},
-    {path: 'skill/modificar/:id', component: EditarSkillComponent}
+    {path: 'skill/modificar/:id', component: EditarSkillComponent},
   ]},
     {path: '**', redirectTo:'porfolio', pathMatch:'full'}
 

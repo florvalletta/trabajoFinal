@@ -34,11 +34,15 @@ export class EditarAcercaDeComponent implements OnInit {
       const id = this.activatedRoute.snapshot.params['id'];
       this.acercaDeService.modificar(id, this.acerca).subscribe(
         data => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/porfolio/acercaDe']);
         },
         err => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/porfolio/acercaDe']);
         }
       )
+    }
+
+    cancelar() {
+      this.router.navigate(['/porfolio/acercaDe'])
     }
   }

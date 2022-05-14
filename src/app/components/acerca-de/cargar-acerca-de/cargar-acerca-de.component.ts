@@ -20,8 +20,12 @@ export class CargarAcercaDeComponent implements OnInit {
   onCreate(): void {
       const acercaDe = new AcercaDe(this.descripcion);
       this.acercaDeService.save(acercaDe).subscribe(
-        data => {this.router.navigate(['/'])},
-        err => {this.router.navigate(['/'])}
+        data => {this.router.navigate(['/porfolio/acercaDe'])},
+        err => {this.router.navigate(['/porfolio/acercaDe'])}
       )
+  }
+
+  cancelar() {
+    this.router.navigate(['/porfolio/acercaDe'])
   }
 }

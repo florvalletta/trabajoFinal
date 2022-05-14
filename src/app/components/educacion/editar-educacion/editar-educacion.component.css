@@ -1,0 +1,23 @@
+.body {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+.modificar-educacion {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.tamanio {
+    width: 100%;
+}
+.tamanioBoton {
+    height: 50px;
+}
+.separacion {
+    padding-top:10px;
+}

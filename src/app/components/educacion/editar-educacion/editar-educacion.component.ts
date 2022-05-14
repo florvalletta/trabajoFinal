@@ -33,13 +33,17 @@ export class EditarEducacionComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params['id'];
     this.educacionService.modificar(id, this.educacion).subscribe(
       data => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/porfolio/educacion']);
       },
       err => {
         alert(err);
-        this.router.navigate(['/']);
+        this.router.navigate(['/porfolio/educacion']);
       }
     )
+  }
+
+  cancelar() {
+    this.router.navigate(['/porfolio/educacion']);
   }
 
 }

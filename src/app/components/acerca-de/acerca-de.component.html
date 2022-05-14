@@ -2,12 +2,12 @@
     <div>
       <mat-toolbar>
         <span>Acerca de</span>
-        <span class="example-spacer"></span><button mat-button routerLink="porfolio/acercaDe/nueva"><mat-icon>add</mat-icon></button>
+        <span class="example-spacer"></span><button mat-button routerLink="/porfolio/acercaDe/nueva"><mat-icon>add</mat-icon></button>
       </mat-toolbar>
       <mat-card class="tarjeta">
         <div *ngFor="let acerca of acercaDe">
           {{acerca.descripcion}}
-          <button mat-button routerLink="porfolio/acercaDe/modificar/{{acerca.id}}"><mat-icon>edit</mat-icon></button>
+          <button mat-button routerLink="/porfolio/acercaDe/modificar/{{acerca.id}}"><mat-icon>edit</mat-icon></button>
           <button mat-button (click)="borrar(acerca.id)"><mat-icon>delete</mat-icon></button>
         </div>
       </mat-card>

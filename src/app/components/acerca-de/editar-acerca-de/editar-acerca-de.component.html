@@ -1,14 +1,23 @@
+<div class="body">
 <div class="container" *ngIf="acerca">
     <div class="row-mt-5">
         <div class="col-md-4 mx-auto">
+            <div class="modificar-descripcion">
+                <h1>Modificar Descripción</h1>
+                <img src="../../../assets/img/editar.png" alt="Imagen de un usuario" width="25%"/>    
+        <div class="separacion">
             <form (ngSubmit)="modificar()" novalidate #f="ngForm">
+
                 <div class="form-group">
-                <label for="descripcion">Descripción</label>
-                <input type="text" class="form-control" id="descripcion" name="descripcion" 
-                [(ngModel)]="acerca.descripcion" required>
-            </div>
-            <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Editar</button>
-            </form>
+                    <mat-form-field class="tamanio" appearance="fill">
+                        <mat-label>Descripción</mat-label>
+                        <input matInput name="descripcion" [(ngModel)]="acerca.descripcion" required>
+                      </mat-form-field>
+                </div>
+            <button type="submit" mat-raised-button color="primary" [disabled]="!f.valid">Editar</button>
+            <button mat-raised-button (click)="cancelar()" color="accent" style="margin: 10px">Cancelar</button>
+        </form>
         </div>
     </div>
+</div>
 </div>

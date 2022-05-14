@@ -26,9 +26,12 @@ export class CargarExperienciaComponent implements OnInit {
   onCreate(): void {
     const experiencia = new Experiencia(this.puesto, this.lugarTrabajo, this.fechaInicio, this.fechaFin, this.logoEmpresa, this.descripcion);
     this.experienciaService.save(experiencia).subscribe(
-      data => {this.router.navigate(['/'])},
-      err => {this.router.navigate(['/'])}
+      data => {this.router.navigate(['/porfolio/experiencia'])},
+      err => {this.router.navigate(['/porfolio/experiencia'])}
     )
 }
 
+cancelar() {
+  this.router.navigate(['/porfolio/experiencia'])
+}
 }

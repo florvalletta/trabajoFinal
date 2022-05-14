@@ -29,7 +29,8 @@
                   </mat-form-field>
                 
             <button mat-raised-button type="submit" color="primary" [disabled]="!f.valid">Cargar</button>
-        </div>
+            <button mat-raised-button (click)="cancelar()" color="accent" style="margin: 10px">Cancelar</button>
+          </div>
             </form>
         </div>
         </div>

@@ -1,1 +1,44 @@
-<p>cargar-portada works!</p>
+<div class="body">
+    <div>
+        <div>
+            <div class="agregar-skill">
+                <h1>Agregar datos personales</h1>
+                <img src="../../../assets/img/subir.png" alt="Imagen de una flecha hacia arriba" width="25%"/>
+                <div class="separacion">
+            <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+                <div class="form-group">
+                        <mat-form-field class="tamanio" appearance="fill">
+                            <mat-label>Nombre</mat-label>
+                            <input matInput name="nombre" [(ngModel)]="nombre" required>
+                        </mat-form-field>
+                        <mat-form-field class="tamanio" appearance="fill">
+                            <mat-label>Apellido</mat-label>
+                            <input matInput name="apellido" [(ngModel)]="apellido" required>
+                        </mat-form-field>
+                        <mat-form-field class="tamanio" appearance="fill">
+                            <mat-label>Foto de portada</mat-label>
+                            <input matInput name="fotoPortada" [(ngModel)]="fotoPortada" required>
+                        </mat-form-field>
+                        <mat-form-field class="tamanio" appearance="fill">
+                            <mat-label>Foto de perfil</mat-label>
+                            <input matInput name="fotoPerfil" [(ngModel)]="fotoPerfil" required>
+                        </mat-form-field>
+                        <mat-form-field class="tamanio" appearance="fill">
+                            <mat-label>Puesto actual</mat-label>
+                            <input matInput name="puestoActual" [(ngModel)]="puestoActual" required>
+                        </mat-form-field>
+                        <mat-form-field class="tamanio" appearance="fill">
+                            <mat-label>Ubicación</mat-label>
+                            <input matInput name="ubicacion" [(ngModel)]="ubicacion" required>
+                        </mat-form-field>
+        </div>
+            
+                <button type="submit" mat-raised-button color="primary" [disabled]="!f.valid">Cargar</button>
+                <button mat-raised-button (click)="cancelar()" color="accent" style="margin: 10px">Cancelar</button>
+            
+        </form>
+    </div>
+        </div>
+    </div>
+</div>
+

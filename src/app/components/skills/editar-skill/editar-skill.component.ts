@@ -1,5 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Skill } from 'src/app/models/skill';
 import { SkillsService } from 'src/app/service/skills.service';
@@ -18,7 +17,7 @@ export class EditarSkillComponent implements OnInit {
     private skillsService: SkillsService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private dialogRef: MatDialogRef<EditarSkillComponent>
+
        
   ) { }
 
@@ -38,15 +37,17 @@ export class EditarSkillComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params['id'];
     this.skillsService.modificar(id, this.skill).subscribe(
       data => {
-        this.router.navigate(['/porfolio']);
+        this.router.navigate(['/porfolio/skill']);
       },
       err => {
         alert(err);
-        this.router.navigate(['/porfolio']);
+        this.router.navigate(['/porfolio/skill']);
       }
     )
   }
 
-  
+cancelar() {
+  this.router.navigate(['/porfolio/skill'])
+}  
 
 }

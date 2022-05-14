@@ -1,26 +1,38 @@
+<div class="body">
 <div class="container" *ngIf="educacion">
     <div class="row-mt-5">
         <div class="col-md-4 mx-auto">
+            <div class="modificar-educacion">
+                <h1>Modificar Educación</h1>
+                <img src="../../../assets/img/editar.png" alt="Imagen de un usuario" width="25%"/>    
+        <div class="separacion">
             <form (ngSubmit)="modificar()" novalidate #f="ngForm">
                 <div class="form-group">
-                <label for="titulo">Título</label>
-                <input type="text" class="form-control" id="titulo" name="titulo" 
-                [(ngModel)]="educacion.titulo" required>
-                <label for="institucion">Institución</label>
-                <input type="text" class="form-control" id="institucion" name="institucion" 
-                [(ngModel)]="educacion.institucion" required>
-                <label for="fechaInicio">Fecha de Inicio</label>
-                <input type="text" class="form-control" id="fechaInicio" name="fechaInicio" 
-                [(ngModel)]="educacion.fechaInicio" required>
-                <label for="fechaFin">Fecha de Fin</label>
-                <input type="text" class="form-control" id="fechaFin" name="fechaFin" 
-                [(ngModel)]="educacion.fechaFin" required>
-                <label for="logoEducacion">Logo de la institución</label>
-                <input type="text" class="form-control" id="logoEducacion" name="logoEducacion" 
-                [(ngModel)]="educacion.logoEducacion" required>
-            </div>
-            <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Editar</button>
-            </form>
+                    <mat-form-field class="tamanio" appearance="fill">
+                        <mat-label>Titulo</mat-label>
+                        <input matInput name="titulo" [(ngModel)]="educacion.titulo" required>
+                      </mat-form-field>
+                    <mat-form-field class="tamanio" appearance="fill">
+                    <mat-label>Institución</mat-label>
+                    <input matInput name="institucion" [(ngModel)]="educacion.institucion" required>
+                  </mat-form-field>
+                <mat-form-field class="tamanio" appearance="fill">
+                    <mat-label>Fecha de inicio</mat-label>
+                    <input matInput name="fechaInicio" [(ngModel)]="educacion.fechaInicio" required>
+                  </mat-form-field>
+                <mat-form-field class="tamanio" appearance="fill">
+                    <mat-label>Fecha de fin</mat-label>
+                    <input matInput name="fechaFin" [(ngModel)]="educacion.fechaFin" required>
+                  </mat-form-field>
+                <mat-form-field class="tamanio" appearance="fill">
+                    <mat-label>Logo de la institución</mat-label>
+                    <input matInput name="logoEducacion" [(ngModel)]="educacion.logoEducacion" required>
+                  </mat-form-field>
+                </div>
+            <button type="submit" mat-raised-button color="primary"[disabled]="!f.valid">Editar</button>
+            <button mat-raised-button (click)="cancelar()" color="accent" style="margin: 10px">Cancelar</button>  
+          </form>
         </div>
     </div>
+</div>
 </div>

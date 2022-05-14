@@ -3,7 +3,7 @@
   <mat-toolbar>
     <span>Proyectos</span>
     <span class="example-spacer"></span>
-    <mat-icon routerLink="porfolio/proyectos/nueva">add</mat-icon>
+    <mat-icon routerLink="/porfolio/proyectos/nueva">add</mat-icon>
   </mat-toolbar>
   <mat-card class="tarjeta">
     <div *ngFor="let proyecto of proyectos">
@@ -12,7 +12,7 @@
       <tr>
         <td><img class="logoProyecto" src="{{proyecto.imagenProyecto}}"/></td>
         <td><h2 class="proyecto"><a href="{{proyecto.linkProyecto}}">{{proyecto.nombreProyecto}}</a></h2><p class="proyecto">{{proyecto.descripcionProyecto}}</p></td>
-        <td><button mat-button routerLink="porfolio/proyectos/modificar/{{proyecto.id}}"><mat-icon>edit</mat-icon></button></td>
+        <td><button mat-button routerLink="/porfolio/proyectos/modificar/{{proyecto.id}}"><mat-icon>edit</mat-icon></button></td>
         <td><button mat-button (click)="borrar(proyecto.id)"><mat-icon>delete</mat-icon></button></td>
     </tr>
     </tbody>

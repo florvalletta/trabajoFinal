@@ -1,29 +1,42 @@
+<div class="body">
 <div class="container" *ngIf="experiencia">
     <div class="row-mt-5">
         <div class="col-md-4 mx-auto">
+            <div class="modificar-experiencia">
+                <h1>Modificar Experiencia</h1>
+                <img src="../../../assets/img/editar.png" alt="Imagen de un usuario" width="25%"/>    
+        <div class="separacion">
             <form (ngSubmit)="modificar()" novalidate #f="ngForm">
                 <div class="form-group">
-                <label for="puesto">Puesto</label>
-                <input type="text" class="form-control" id="puesto" name="puesto" 
-                [(ngModel)]="experiencia.puesto" required>
-                <label for="lugarTrabajo">Empresa o institución</label>
-                <input type="text" class="form-control" id="lugarTrabajo" name="lugarTrabajo" 
-                [(ngModel)]="experiencia.lugarTrabajo" required>
-                <label for="fechaInicio">Fecha de inicio</label>
-                <input type="text" class="form-control" id="fechaInicio" name="fechaInicio" 
-                [(ngModel)]="experiencia.fechaInicio" required>
-                <label for="fechaFin">Fecha de fin</label>
-                <input type="text" class="form-control" id="fechaFin" name="fechaFin" 
-                [(ngModel)]="experiencia.fechaFin" required>
-                <label for="logoEmpresa">Logo de la empresa o institución</label>
-                <input type="text" class="form-control" id="logoEmpresa" name="logoEmpresa" 
-                [(ngModel)]="experiencia.logoEmpresa" required>
-                <label for="descripcion">Descripción de las tareas realizadas</label>
-                <input type="text" class="form-control" id="descripcion" name="descripcion" 
-                [(ngModel)]="experiencia.descripcion" required>
+                    <mat-form-field class="tamanio" appearance="fill">
+                        <mat-label>Puesto</mat-label>
+                        <input matInput name="puesto" [(ngModel)]="experiencia.puesto" required>
+                      </mat-form-field>
+                    <mat-form-field class="tamanio" appearance="fill">
+                    <mat-label>Empresa o Institución</mat-label>
+                    <input matInput name="lugarTrabajo" [(ngModel)]="experiencia.lugarTrabajo" required>
+                  </mat-form-field>
+                <mat-form-field class="tamanio" appearance="fill">
+                    <mat-label>Fecha de inicio</mat-label>
+                    <input matInput name="fechaInicio" [(ngModel)]="experiencia.fechaInicio" required>
+                  </mat-form-field>
+                <mat-form-field class="tamanio" appearance="fill">
+                    <mat-label>Fecha de fin</mat-label>
+                    <input matInput name="fechaFin" [(ngModel)]="experiencia.fechaFin" required>
+                  </mat-form-field>
+                <mat-form-field class="tamanio" appearance="fill">
+                    <mat-label>Logo de la empresa o institución</mat-label>
+                    <input matInput name="logoEmpresa" [(ngModel)]="experiencia.logoEmpresa" required>
+                  </mat-form-field>
+                <mat-form-field class="tamanio" appearance="fill">
+                    <mat-label>Descripción de las tareas realizadas</mat-label>
+                    <input matInput name="descripcion" [(ngModel)]="experiencia.descripcion" required>
+                  </mat-form-field>
             </div>
-            <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Editar</button>
-            </form>
+            <button type="submit" mat-raised-button color="primary" [disabled]="!f.valid">Editar</button>
+            <button mat-raised-button (click)="cancelar()" color="accent" style="margin: 10px">Cancelar</button>  
+          </form>
         </div>
     </div>
+</div>
 </div>

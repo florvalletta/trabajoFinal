@@ -17,8 +17,7 @@ export class CargarSkillComponent implements OnInit {
 
   constructor(
     private skillsService: SkillsService,
-    private router: Router,
-    private modal: SwitchService
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -27,12 +26,13 @@ export class CargarSkillComponent implements OnInit {
   onCreate(): void {
     const skill = new Skill(this.nombreSkill, this.valorPorcentaje);
     this.skillsService.save(skill).subscribe(
-      data => {this.router.navigate(['/'])},
-      err => {this.router.navigate(['/'])}
+      data => {this.router.navigate(['/porfolio/skill'])},
+      err => {this.router.navigate(['/porfolio/skill'])}
     )
 }
 
-  cerrar(){
-    this.modal.$modal.emit(false);
-  }
+cancelar() {
+  this.router.navigate(['/porfolio/skill'])
+}
+  
 }

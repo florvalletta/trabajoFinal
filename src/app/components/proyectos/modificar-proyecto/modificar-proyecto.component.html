@@ -1,28 +1,39 @@
+<div class="body">
 <div class="container" *ngIf="proyecto">
     <div class="row-mt-5">
         <div class="col-md-4 mx-auto">
+            <div class="modificar-proyecto">
+                <h1>Modificar Proyecto</h1>
+                <img src="../../../assets/img/editar.png" alt="Imagen de un usuario" width="25%"/>    
+        <div class="separacion">
             <form (ngSubmit)="modificar()" novalidate #f="ngForm">
                 <div class="form-group">
-                <label for="nombreProyecto">Nombre del Proyecto</label>
-                <input type="text" class="form-control" id="nombreProyecto" name="nombreProyecto" 
-                [(ngModel)]="proyecto.nombreProyecto" required>
-                <label for="fechaRealizacion">Fecha de Realización</label>
-                <input type="text" class="form-control" id="fechaRealizacion" name="fechaRealizacion" 
-                [(ngModel)]="proyecto.fechaRealizacion" required>
-                <label for="linkProyecto">Link al proyecto</label>
-                <input type="text" class="form-control" id="linkProyecto" name="linkProyecto" 
-                [(ngModel)]="proyecto.linkProyecto" required>
-                <label for="imagenProyecto">Imagen del proyecto</label>
-                <input type="text" class="form-control" id="imagenProyecto" name="imagenProyecto" 
-                [(ngModel)]="proyecto.imagenProyecto" required>
-                <label for="descripcionProyecto">Breve descripción del proyecto</label>
-                <input type="text" class="form-control" id="descripcionProyecto" name="descripcionProyecto" 
-                [(ngModel)]="proyecto.descripcionProyecto" required>
+                    <mat-form-field class="tamanio" appearance="fill">
+                        <mat-label>Nombre del proyecto</mat-label>
+                        <input matInput name="nombreProyecto" [(ngModel)]="proyecto.nombreProyecto" required>
+                      </mat-form-field>
+                    <mat-form-field class="tamanio" appearance="fill">
+                    <mat-label>Fecha de realización</mat-label>
+                    <input matInput name="fechaRealizacion" [(ngModel)]="proyecto.fechaRealizacion" required>
+                  </mat-form-field>
+                  <mat-form-field class="tamanio" appearance="fill">
+                    <mat-label>Link al proyecto</mat-label>
+                    <input matInput name="linkProyecto" [(ngModel)]="proyecto.linkProyecto" required>
+                  </mat-form-field>
+                <mat-form-field class="tamanio" appearance="fill">
+                    <mat-label>Imagen del proyecto</mat-label>
+                    <input matInput name="imagenProyecto" [(ngModel)]="proyecto.imagenProyecto" required>
+                  </mat-form-field>
+                <mat-form-field class="tamanio" appearance="fill">
+                    <mat-label>Breve descripción del proyecto</mat-label>
+                    <input matInput name="descripcionProyecto" [(ngModel)]="proyecto.descripcionProyecto" required>
+                  </mat-form-field>
                 
             </div>
-            <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Editar</button>
-            </form>
+            <button type="submit" mat-raised-button color="primary" [disabled]="!f.valid">Editar</button>
+            <button mat-raised-button (click)="cancelar()" color="accent" style="margin: 10px">Cancelar</button>  
+          </form>
         </div>
     </div>
 </div>
-
+</div>

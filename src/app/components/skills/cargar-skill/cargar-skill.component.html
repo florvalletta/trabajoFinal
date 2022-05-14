@@ -4,7 +4,7 @@
         <div>
             <div class="agregar-skill">
                 <h1>Agregar skill</h1>
-                <img src="../../../assets/img/subir.png" alt="Imagen de una flecha hacia arriba" width="75%"/>
+                <img src="../../../assets/img/subir.png" alt="Imagen de una flecha hacia arriba" width="25%"/>
                 <div class="separacion">
             <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
                 <div class="form-group">
@@ -27,7 +27,7 @@
         </div>
             
                 <button type="submit" mat-raised-button color="primary" [disabled]="!f.valid">Cargar</button>
-            
+                <button mat-raised-button (click)="cancelar()" color="accent" style="margin: 10px">Cancelar</button>
             </div>
         </form>
     </div>

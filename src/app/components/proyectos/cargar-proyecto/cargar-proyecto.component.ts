@@ -27,9 +27,13 @@ export class CargarProyectoComponent implements OnInit {
   onCreate(): void {
     const proyecto = new Proyectos(this.nombreProyecto, this.fechaRealizacion, this.linkProyecto, this.imagenProyecto, this.descripcionProyecto);
     this.proyectosService.save(proyecto).subscribe(
-      data => {this.router.navigate(['/'])},
-      err => {this.router.navigate(['/'])}
+      data => {this.router.navigate(['/porfolio/proyectos'])},
+      err => {this.router.navigate(['/porfolio/proyectos'])}
     )
+}
+
+cancelar() {
+  this.router.navigate(['/porfolio/proyectos'])
 }
 
 }
