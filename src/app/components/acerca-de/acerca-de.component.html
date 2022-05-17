@@ -6,9 +6,11 @@
       </mat-toolbar>
       <mat-card class="tarjeta">
         <div *ngFor="let acerca of acercaDe">
-          {{acerca.descripcion}}
-          <button mat-button routerLink="/porfolio/acercaDe/modificar/{{acerca.id}}"><mat-icon>edit</mat-icon></button>
-          <button mat-button (click)="borrar(acerca.id)"><mat-icon>delete</mat-icon></button>
+          <mat-grid-list cols="4" rowHeight="50px">
+            <mat-grid-tile [colspan]="2" [rowspan]="1">{{acerca.descripcion}}</mat-grid-tile>
+            <mat-grid-tile [colspan]="2" [rowspan]="1"><button mat-button routerLink="/porfolio/acercaDe/modificar/{{acerca.id}}"><mat-icon>edit</mat-icon></button>
+              <button mat-button (click)="borrar(acerca.id)"><mat-icon>delete</mat-icon></button></mat-grid-tile>
+          </mat-grid-list>
         </div>
       </mat-card>
     

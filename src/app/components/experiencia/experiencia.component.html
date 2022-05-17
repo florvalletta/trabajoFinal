@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container alineacion">
     <div>
       <mat-toolbar>
         <span>Experiencia</span>
@@ -10,16 +10,18 @@
           <table class="table table-hover">
             <tbody>
              <tr>
-               <td><img class="logoExperiencia" src="{{exper.logoEmpresa}}"/></td>
-               <td><p>{{exper.puesto}}</p>
-               <p>{{exper.lugarTrabajo}}</p>
-               <p>Fecha de inicio: {{exper.fechaInicio}}</p>
-               <p>Fecha de fin: {{exper.fechaFin}}</p> 
-               <p>Tareas realizadas: {{exper.descripcion}}</p>
-               </td>
-               <td><button mat-button routerLink="/porfolio/experiencia/modificar/{{exper.id}}"><mat-icon>edit</mat-icon></button></td>
-               <td><button mat-button (click)="borrar(exper.id)"><mat-icon>delete</mat-icon></button></td>
-               
+               <mat-grid-list cols="4" rowHeight="200px">
+                 <mat-grid-tile [colspan]="1" [rowspan]="1"><td><img class="logoExperiencia" src="{{exper.logoEmpresa}}"/></td></mat-grid-tile>
+                  <mat-grid-tile [colspan]="1" [rowspan]="1"><td><p>{{exper.puesto}}</p>
+                    <p>{{exper.lugarTrabajo}}</p>
+                    <p>Fecha de inicio: {{exper.fechaInicio}}</p>
+                    <p>Fecha de fin: {{exper.fechaFin}}</p> 
+                    <p>Tareas realizadas: {{exper.descripcion}}</p>
+                    </td></mat-grid-tile>
+                  <mat-grid-tile [colspan]="2" [rowspan]="1"><td><button mat-button routerLink="/porfolio/experiencia/modificar/{{exper.id}}"><mat-icon>edit</mat-icon></button></td>
+                    <td><button mat-button (click)="borrar(exper.id)"><mat-icon>delete</mat-icon></button></td>
+                    </mat-grid-tile>
+                </mat-grid-list>
              </tr>
              
            </tbody>

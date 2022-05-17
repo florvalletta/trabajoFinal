@@ -7,13 +7,16 @@
   </mat-toolbar>
   <mat-card class="tarjeta">
     <div *ngFor="let proyecto of proyectos">
+      
       <table class="table table-hover">
         <tbody>
       <tr>
-        <td><img class="logoProyecto" src="{{proyecto.imagenProyecto}}"/></td>
-        <td><h2 class="proyecto"><a href="{{proyecto.linkProyecto}}">{{proyecto.nombreProyecto}}</a></h2><p class="proyecto">{{proyecto.descripcionProyecto}}</p></td>
-        <td><button mat-button routerLink="/porfolio/proyectos/modificar/{{proyecto.id}}"><mat-icon>edit</mat-icon></button></td>
-        <td><button mat-button (click)="borrar(proyecto.id)"><mat-icon>delete</mat-icon></button></td>
+        <mat-grid-list cols="4" rowHeight="200px">
+          <mat-grid-tile [colspan]="1" [rowspan]="1"><td><img class="logoProyecto" src="{{proyecto.imagenProyecto}}"/></td></mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1"><td><h2 class="proyecto"><a href="{{proyecto.linkProyecto}}">{{proyecto.nombreProyecto}}</a></h2><p class="proyecto">{{proyecto.descripcionProyecto}}</p></td></mat-grid-tile>  
+          <mat-grid-tile [colspan]="2" [rowspan]="1"><td><button mat-button routerLink="/porfolio/proyectos/modificar/{{proyecto.id}}"><mat-icon>edit</mat-icon></button></td>
+            <td><button mat-button (click)="borrar(proyecto.id)"><mat-icon>delete</mat-icon></button></td></mat-grid-tile>
+        </mat-grid-list>
     </tr>
     </tbody>
     </table>
