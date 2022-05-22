@@ -1,7 +1,10 @@
-import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+//Model
 import { AcercaDe } from 'src/app/models/acerca-de';
+//Service
 import { AcercaDeService } from './service/acerca-de.service';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+//Angular Material
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-acerca-de',
@@ -12,14 +15,14 @@ export class AcercaDeComponent implements OnInit {
 
   acercaDe: AcercaDe[] = [];
 
-  constructor(private acercaDeService: AcercaDeService
+  constructor(private acercaDeService: AcercaDeService,
+    	        private _snackBar: MatSnackBar
     ) {}
 
   ngOnInit() {
     this.verAcercaDe();
   }
-
-  
+ 
 
   verAcercaDe(): void {
     this.acercaDeService.list().subscribe(
@@ -31,14 +34,25 @@ export class AcercaDeComponent implements OnInit {
       })
   }
 
+  //Método no utilizado pero que se desarrolló por si desea incluirsela en esta sección
   borrar(id: number) {
     this.acercaDeService.eliminar(id).subscribe(
       data => {
+        this.eliminacion(),
         this.verAcercaDe();
       },
     err => {
 
     }
     );
+  }
+ 
+  //Método para emitir un mensaje de que los datos se eliminaron
+  eliminacion() {
+    this._snackBar.open('La descripción se eliminó correctamente', 'OK',  {
+      duration: 5000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top'
+    });
   }
 }

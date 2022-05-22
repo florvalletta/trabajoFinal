@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+//Model
 import { Skill } from 'src/app/models/skill';
+//Service
 import { SkillsService } from 'src/app/service/skills.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
-import { SwitchService } from 'src/app/service/switch.service';
+//Angular Material
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cargar-skill',
@@ -17,7 +19,8 @@ export class CargarSkillComponent implements OnInit {
 
   constructor(
     private skillsService: SkillsService,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
     ) { }
 
   ngOnInit(): void {
@@ -26,13 +29,35 @@ export class CargarSkillComponent implements OnInit {
   onCreate(): void {
     const skill = new Skill(this.nombreSkill, this.valorPorcentaje);
     this.skillsService.save(skill).subscribe(
-      data => {this.router.navigate(['/porfolio/skill'])},
-      err => {this.router.navigate(['/porfolio/skill'])}
+      data => {
+              this.exito(),
+              this.router.navigate(['/porfolio/skill'])},
+      err => {
+              this.error(),
+              this.router.navigate(['/porfolio/skill'])}
     )
 }
 
+//Método para cerrar el formulario sin guardar cambios
 cancelar() {
   this.router.navigate(['/porfolio/skill'])
 }
-  
+
+//Método para emitir un mensaje de que los datos no se cargaron
+error() {
+  this._snackBar.open('Error de carga de skill', 'Fail',  {
+    duration: 5000,
+    horizontalPosition: 'center',
+    verticalPosition: 'top'
+  });
+}
+
+//Método para emitir un mensaje de que los datos se cargaron
+exito() {
+  this._snackBar.open('La skill se cargó correctamente', 'OK',  {
+    duration: 5000,
+    horizontalPosition: 'center',
+    verticalPosition: 'top'
+  });
+}
 }

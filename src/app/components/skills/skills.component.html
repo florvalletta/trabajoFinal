@@ -3,25 +3,23 @@
   <mat-toolbar>
     <span>Hard Skills & Soft Skills</span>
     <span class="example-spacer"></span>
-    <mat-icon routerLink="/porfolio/skill/nueva">add</mat-icon>
+    <mat-icon color="primary" routerLink="/porfolio/skill/nueva">add</mat-icon>
   </mat-toolbar>
   <mat-card class="tarjeta">
-    <table class="table table-hover">
-      <tbody>
-    <tr *ngFor="let ski of skill">
-    <td><p><h6 class="skills-detail" name="nombreSkill">{{ski.nombreSkill}}</h6> 
-      <div class="progress">
-        <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: {{ski.valorPorcentaje}}%" attr.aria-valuenow="{{ski.valorPorcentaje}}" 
-        aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-    </td>
-    <td><button mat-button routerLink="/porfolio/skill/modificar/{{ski.id}}"><mat-icon>edit</mat-icon></button></td>
-    <td><button mat-button (click)="borrar(ski.id)"><mat-icon>delete</mat-icon></button></td>
-    
-  </tr>
-  </tbody>
-  </table>
+      <table class="table table-hover">
+        <tbody>
+      <tr *ngFor="let ski of skill">
+      <td><p><h6 class="destacado" name="nombreSkill">{{ski.nombreSkill}}</h6> 
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: {{ski.valorPorcentaje}}%" attr.aria-valuenow="{{ski.valorPorcentaje}}" 
+          aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </td>
+      <td><button mat-button color="primary" routerLink="/porfolio/skill/modificar/{{ski.id}}"><mat-icon>edit</mat-icon></button></td>
+      <td><button mat-button color="warn" (click)="borrar(ski.id)"><mat-icon>delete</mat-icon></button></td>
+    </tr>
+    </tbody>
+    </table>
   </mat-card>
-  
 </div>
 </div>

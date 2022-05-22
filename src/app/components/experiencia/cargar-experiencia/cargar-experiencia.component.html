@@ -3,33 +3,33 @@
         <div class="col-md-4 mx-auto">
             <div class="agregar-experiencia">
                 <h1>Agregar Experiencia</h1>
-                <img src="../../../assets/img/subir.png" alt="Imagen de una flecha hacia arriba" width="75%"/>
+                <img src="https://github.com/florvalletta/PfImg/blob/main/subir.png?raw=true" alt="Imagen de una flecha hacia arriba" width="40%"/>
                 <div class="separacion">
                 <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
                 <div class="form-group">
                     <mat-form-field class="tamanio" appearance="fill">
                         <mat-label>Puesto</mat-label>
-                        <input matInput name="puesto" [(ngModel)]="puesto" required>
+                        <input matInput name="puesto" [(ngModel)]="puesto" required matInput autocomplete="off">
                     </mat-form-field>  
                 <mat-form-field class="tamanio" appearance="fill">
                     <mat-label>Empresa o institución</mat-label>
-                    <input matInput name="lugarTrabajo" [(ngModel)]="lugarTrabajo" required>
+                    <input matInput name="lugarTrabajo" [(ngModel)]="lugarTrabajo" required matInput autocomplete="off">
                 </mat-form-field>
                 <mat-form-field class="tamanio" appearance="fill">
                     <mat-label>Fecha de inicio</mat-label>
-                    <input matInput name="fechaInicio" [(ngModel)]="fechaInicio" required>
+                    <input matInput name="fechaInicio" [(ngModel)]="fechaInicio" required matInput autocomplete="off">
                 </mat-form-field>
                 <mat-form-field class="tamanio" appearance="fill">
                     <mat-label>Fecha de fin</mat-label>
-                    <input matInput name="fechaFin" [(ngModel)]="fechaFin" required>
+                    <input matInput name="fechaFin" [(ngModel)]="fechaFin" required matInput autocomplete="off">
                 </mat-form-field>
                 <mat-form-field class="tamanio" appearance="fill">
                     <mat-label>Logo de la empresa o Institución</mat-label>
-                    <input matInput name="logoEmpresa" [(ngModel)]="logoEmpresa" required>
+                    <input matInput name="logoEmpresa" [(ngModel)]="logoEmpresa" required matInput autocomplete="off">
                 </mat-form-field>
                 <mat-form-field class="tamanio" appearance="fill">
                     <mat-label>Descripción de las tareas realizadas</mat-label>
-                    <input matInput name="descripcion" [(ngModel)]="descripcion" required>
+                    <input matInput name="descripcion" [(ngModel)]="descripcion" required matInput autocomplete="off">
                 </mat-form-field>
                 
             </div>

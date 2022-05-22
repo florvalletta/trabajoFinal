@@ -1,25 +1,26 @@
-
+<!--Componente que no se muestra en el portfolio pero se implementó para la carga del acerca de, la misma es accesible desde el navegador puesto que está ruteada-->
 <div class="body">
     <div class="row-mt-5">
         <div class="col-md-4 mx-auto">
             
             <div class="agregar-descripcion">
                 <h1>Agregar Descripción</h1>
-                <img src="../../../assets/img/subir.png" alt="Imagen de un usuario" width="75%"/>    
+                <img src="https://github.com/florvalletta/PfImg/blob/main/subir.png?raw=true" alt="Imagen de un usuario" width="40%"/>    
         <div class="separacion">
             <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
                 <div class="form-group">
                     <mat-form-field class="tamanio" appearance="fill">
                         <mat-label>Descripción</mat-label>
-                        <input matInput name="descripcion" [(ngModel)]="descripcion" required>
+                        <input matInput name="descripcion" [(ngModel)]="descripcion" required matInput autocomplete="off">
                       </mat-form-field>    
             </div>
             <button type="submit" mat-raised-button class="tamanio tamanioBoton" color="primary" [disabled]="!f.valid">Cargar</button>
             <button mat-raised-button (click)="cancelar()" color="accent" style="margin: 10px">Cancelar</button>
         </form>
         </div>
+        
         </div>
-        </div>
+    </div>
     </div>
 </div>
 

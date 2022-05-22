@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+//Model
 import { Educacion } from 'src/app/models/educacion';
+//Service
 import { EducacionService } from 'src/app/service/educacion.service';
+//Angular Material
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -32,6 +35,7 @@ export class CargarEducacionComponent implements OnInit {
     )
 }
 
+//Método para emitir un mensaje de que los datos no se cargaron
 error() {
   this._snackBar.open('Error de carga de educación', 'Fail',  {
     duration: 5000,
@@ -40,14 +44,16 @@ error() {
   });
 }
 
+//Método para emitir un mensaje de que los datos se cargaron
 exito() {
-  this._snackBar.open('Se cargaron correctamente los datos de educación', '',  {
+  this._snackBar.open('Se cargaron correctamente los datos de educación', 'OK',  {
     duration: 5000,
     horizontalPosition: 'center',
     verticalPosition: 'top'
   });
 }
 
+//Método para cerrar el formulario sin guardar cambios
 cancelar() {
   this.router.navigate(['/porfolio/educacion'])
 }

@@ -6,14 +6,14 @@
     text-align: center;
 }
 
-.agregar-skill {
+.agregar-datos {
     width: 100%;
     max-width: 600px;
     text-align: center;
 }
 
 .tamanio {
-    width: 100%;
+    width: 55%;
 }
 .tamanioBoton {
     height: 50px;

@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 //Componentes
-import { HeaderComponent } from './components/header/header.component';
 import { AcercaDeComponent } from './components/acerca-de/acerca-de.component';
 import { PortadaComponent } from './components/portada/portada.component';
 import { ExperienciaComponent } from './components/experiencia/experiencia.component';
@@ -20,14 +19,10 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { LoginComponent } from './components/login/login.component';
 import { CargarAcercaDeComponent } from './components/acerca-de/cargar-acerca-de/cargar-acerca-de.component';
 import { EditarAcercaDeComponent } from './components/acerca-de/editar-acerca-de/editar-acerca-de.component';
-import { EliminarAcercaDeComponent } from './components/acerca-de/eliminar-acerca-de/eliminar-acerca-de.component';
-import { DetalleAcercaDeComponent } from './components/acerca-de/detalle-acerca-de/detalle-acerca-de.component';
 import { CargarPortadaComponent } from './components/portada/cargar-portada/cargar-portada.component';
 import { EditarPortadaComponent } from './components/portada/editar-portada/editar-portada.component';
-import { EliminarPortadaComponent } from './components/portada/eliminar-portada/eliminar-portada.component';
 import { EditarEducacionComponent } from './components/educacion/editar-educacion/editar-educacion.component';
 import { CargarEducacionComponent } from './components/educacion/cargar-educacion/cargar-educacion.component';
-import { DetalleEducacionComponent } from './components/educacion/detalle-educacion/detalle-educacion.component';
 import { CargarExperienciaComponent } from './components/experiencia/cargar-experiencia/cargar-experiencia.component';
 import { EditarExperienciaComponent } from './components/experiencia/editar-experiencia/editar-experiencia.component';
 import { CargarProyectoComponent } from './components/proyectos/cargar-proyecto/cargar-proyecto.component';
@@ -38,6 +33,15 @@ import { PorfolioComponent } from './components/porfolio/porfolio.component';
 import { CompartidoModule } from './modules/compartido/compartido.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
+//Servicios
+import { DatosPersonalesService } from './service/datos-personales.service';
+import { InterceptorService } from './service/interceptor.service';
+import { AcercaDeService } from './components/acerca-de/service/acerca-de.service';
+import { EducacionService } from './service/educacion.service';
+import { ExperienciaService } from './service/experiencia.service';
+import { ProyectosService } from './service/proyectos.service';
+import { SkillsService } from './service/skills.service';
+
 
 
 
@@ -45,7 +49,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     AcercaDeComponent,
     PortadaComponent,
     ExperienciaComponent,
@@ -55,14 +58,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LoginComponent,
     CargarAcercaDeComponent,
     EditarAcercaDeComponent,
-    EliminarAcercaDeComponent,
-    DetalleAcercaDeComponent,
     CargarPortadaComponent,
     EditarPortadaComponent,
-    EliminarPortadaComponent,
     EditarEducacionComponent,
     CargarEducacionComponent,
-    DetalleEducacionComponent,
     CargarExperienciaComponent,
     EditarExperienciaComponent,
     CargarProyectoComponent,
@@ -79,11 +78,23 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    CompartidoModule
+    CompartidoModule,
+    ReactiveFormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent, HeaderComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  entryComponents: [EditarSkillComponent]
+  providers: [DatosPersonalesService,
+  { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
+  AcercaDeService,
+  { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
+  EducacionService,
+  { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
+  ExperienciaService,
+  { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
+  ProyectosService,
+  { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
+  SkillsService,
+  { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}  
+],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

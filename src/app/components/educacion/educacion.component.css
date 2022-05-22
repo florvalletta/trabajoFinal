@@ -1,20 +1,9 @@
-.container-educacion{
-    margin-top: 10px;
-    text-align: left;
-    max-width: 100%;
-    border-width: 1px;
-    border-style: solid;
-    border-color: lightgray;
-    padding: 10px;
-    border-radius:20px;
-}
-.educacion-suma{
-position: relative;
-left:95%;
-top:-40px;
-}
-
 .logoEducacion {
     max-width: 100px;
     max-height: 100px;
+}
+.destacado {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(95, 38, 168);
 }

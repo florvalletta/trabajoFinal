@@ -1,12 +1,13 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+//Model
 import { Skill } from 'src/app/models/skill';
+
+//Service
 import { SkillsService } from 'src/app/service/skills.service';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { CargarSkillComponent } from './cargar-skill/cargar-skill.component';
-import { EditarSkillComponent } from './editar-skill/editar-skill.component';
+
+//Angular Material
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -23,9 +24,7 @@ export class SkillsComponent implements OnInit {
 
   constructor(
     private skillsService: SkillsService, 
-    private router: Router, 
-    private httpClient: HttpClient,
-    
+    private _snackBar: MatSnackBar
     ) { }
 
   ngOnInit(): void {
@@ -44,11 +43,10 @@ export class SkillsComponent implements OnInit {
 
   }
 
- 
-
   borrar(id: number) {
     this.skillsService.eliminar(id).subscribe(
       data => {
+        this.eliminacion(),
         this.verSkill();
       },
     err => {
@@ -57,7 +55,13 @@ export class SkillsComponent implements OnInit {
     );
   }
 
-  
+//Método para emitir un mensaje de que los datos fueron eliminados correctamente
+  eliminacion() {
+    this._snackBar.open('La skill se eliminó correctamente', 'OK',  {
+      duration: 5000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top'
+    });
   }
   
-  
+  }

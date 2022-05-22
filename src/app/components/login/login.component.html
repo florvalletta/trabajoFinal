@@ -1,17 +1,31 @@
 <div class="body">
     <div class="login">
-        <img src="../../../assets/img/user.png" alt="Imagen de un usuario" width="50%"/>
+        <img src="https://github.com/florvalletta/PfImg/blob/main/user.png?raw=true" alt="Imagen de un usuario" width="50%"/>
         <h1>Ingresar</h1>
+        <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
         <mat-form-field class="tamanio" appearance="fill">
             <mat-label>Usuario</mat-label>
-            <input matInput autocomplete="off">
+            <input type="text" formControlName="username" [ngClass]="{'is-invalid': Username?.errors && Username?.touched, 
+            'is valid': !Username?.errors && Username?.touched}" matInput autocomplete="off">
+            <div *ngIf="Username?.errors && Username?.touched">
+              <p *ngIf="Username?.hasError('required')" class="text-danger">
+                El usuario es requerido
+              </p>
+            </div>
           </mat-form-field>
           <mat-form-field class="tamanio" appearance="fill">
             <mat-label>Contraseña</mat-label>
-            <input matInput autocomplete="off">
+            <input type="password" formControlName="password" [ngClass]="{'is-invalid': Password?.errors && Password?.touched, 
+            'is valid': !Password?.errors && Password?.touched}" matInput autocomplete="off">
+            <div *ngIf="Password?.errors && Password?.touched">
+              <p *ngIf="Password?.hasError('required')" class="text-danger">
+                La contraseña es requerida
+              </p>
+            </div>
           </mat-form-field>
           <br>
-          <button mat-raised-button class="tamanio tamanioBoton" color="primary">Ingresar</button>
-    </div>
+          <button type="submit" mat-raised-button class="tamanio tamanioBoton" color="primary">Ingresar</button>
+        </form>
+        </div>
     
 </div>

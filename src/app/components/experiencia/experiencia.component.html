@@ -3,23 +3,26 @@
       <mat-toolbar>
         <span>Experiencia</span>
         <span class="example-spacer"></span>
-        <mat-icon routerLink="/porfolio/experiencia/nueva">add</mat-icon>
+        <mat-icon color="primary" routerLink="/porfolio/experiencia/nueva">add</mat-icon>
       </mat-toolbar>
       <mat-card class="tarjeta">
         <div *ngFor="let exper of experiencia">
           <table class="table table-hover">
             <tbody>
-             <tr>
-               <mat-grid-list cols="4" rowHeight="200px">
+              <tr>
+               <mat-grid-list cols="4" rowHeight="250px">
                  <mat-grid-tile [colspan]="1" [rowspan]="1"><td><img class="logoExperiencia" src="{{exper.logoEmpresa}}"/></td></mat-grid-tile>
-                  <mat-grid-tile [colspan]="1" [rowspan]="1"><td><p>{{exper.puesto}}</p>
-                    <p>{{exper.lugarTrabajo}}</p>
-                    <p>Fecha de inicio: {{exper.fechaInicio}}</p>
-                    <p>Fecha de fin: {{exper.fechaFin}}</p> 
-                    <p>Tareas realizadas: {{exper.descripcion}}</p>
-                    </td></mat-grid-tile>
-                  <mat-grid-tile [colspan]="2" [rowspan]="1"><td><button mat-button routerLink="/porfolio/experiencia/modificar/{{exper.id}}"><mat-icon>edit</mat-icon></button></td>
-                    <td><button mat-button (click)="borrar(exper.id)"><mat-icon>delete</mat-icon></button></td>
+                  <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <td><p><span class="destacado">{{exper.puesto}}</span><br/><br/>
+                      {{exper.lugarTrabajo}}<br/><br/>
+                      Fecha de inicio: {{exper.fechaInicio}} | Fecha de fin: {{exper.fechaFin}}<br><br>
+                      {{exper.descripcion}}
+                  </p>
+                  </td>
+                    
+                  </mat-grid-tile>
+                  <mat-grid-tile [colspan]="2" [rowspan]="1"><td><button mat-button color="primary" routerLink="/porfolio/experiencia/modificar/{{exper.id}}"><mat-icon>edit</mat-icon></button></td>
+                    <td><button mat-button color="warn" (click)="borrar(exper.id)"><mat-icon>delete</mat-icon></button></td>
                     </mat-grid-tile>
                 </mat-grid-list>
              </tr>

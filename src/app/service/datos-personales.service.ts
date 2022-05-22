@@ -7,10 +7,13 @@ import { DatosPersonales } from '../models/datos-personales';
   providedIn: 'root'
 })
 export class DatosPersonalesService {
-  
+
+   
   datosPersonalesURL = 'http://localhost:8080/datosPersonales/'
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) { 
+    
+  }
 
   public list(): Observable<DatosPersonales[]> {
     return this.httpClient.get<DatosPersonales[]>(this.datosPersonalesURL + 'ver');

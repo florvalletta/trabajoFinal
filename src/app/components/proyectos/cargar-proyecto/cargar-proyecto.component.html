@@ -3,29 +3,29 @@
         <div class="col-md-4 mx-auto">
             <div class="agregar-proyecto">
                 <h1>Agregar proyecto</h1>
-                <img src="../../../assets/img/subir.png" alt="Imagen de una flecha hacia arriba" width="75%"/>
+                <img src="https://github.com/florvalletta/PfImg/blob/main/subir.png?raw=true" alt="Imagen de una flecha hacia arriba" width="40%"/>
                 <div class="separacion">
             <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
                 <div class="form-group">
                     <mat-form-field class="tamanio" appearance="fill">
                         <mat-label>Nombre del proyecto</mat-label>
-                        <input matInput name="nombreProyecto" [(ngModel)]="nombreProyecto" required>
+                        <input matInput name="nombreProyecto" [(ngModel)]="nombreProyecto" required matInput autocomplete="off">
                     </mat-form-field>
                 <mat-form-field class="tamanio" appearance="fill">
                     <mat-label>Fecha de realización</mat-label>
-                    <input matInput name="fechaRealizacion" [(ngModel)]="fechaRealizacion" required>
+                    <input matInput name="fechaRealizacion" [(ngModel)]="fechaRealizacion" required matInput autocomplete="off">
                 </mat-form-field>
                 <mat-form-field class="tamanio" appearance="fill">
                     <mat-label>Link del proyecto</mat-label>
-                    <input matInput name="linkProyecto" [(ngModel)]="linkProyecto" required>
+                    <input matInput name="linkProyecto" [(ngModel)]="linkProyecto" required matInput autocomplete="off">
                 </mat-form-field>
                 <mat-form-field class="tamanio" appearance="fill">
                     <mat-label>Imagen descriptiva del proyecto</mat-label>
-                    <input matInput name="imagenProyecto" [(ngModel)]="imagenProyecto" required>
+                    <input matInput name="imagenProyecto" [(ngModel)]="imagenProyecto" required matInput autocomplete="off">
                 </mat-form-field>
                 <mat-form-field class="tamanio" appearance="fill">
                     <mat-label>Breve descripción del proyecto</mat-label>
-                    <input matInput name="descripcionProyecto" [(ngModel)]="descripcionProyecto" required>
+                    <input matInput name="descripcionProyecto" [(ngModel)]="descripcionProyecto" required matInput autocomplete="off">
                 </mat-form-field>
                 
             </div>

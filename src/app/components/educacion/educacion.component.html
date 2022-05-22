@@ -3,20 +3,24 @@
       <mat-toolbar>
         <span>Educación</span>
         <span class="example-spacer"></span>
-        <mat-icon routerLink="/porfolio/educacion/nueva">add</mat-icon>
+        <mat-icon color="primary" routerLink="/porfolio/educacion/nueva">add</mat-icon>
       </mat-toolbar>
       <mat-card class="tarjeta">
         <div *ngFor="let educa of educacion">
-          
-          
           <table class="table table-hover">
           <tbody>
               <tr >
                 <mat-grid-list cols="4" rowHeight="200px">
                   <mat-grid-tile [colspan]="1" [rowspan]="1"><td><img class="logoEducacion" src="{{educa.logoEducacion}}"/></td></mat-grid-tile>
-                  <mat-grid-tile [colspan]="1" [rowspan]="1"><td><p>{{educa.titulo}}</p><p>{{educa.institucion}}</p><p>Fecha de inicio: {{educa.fechaInicio}}</p><p>Fecha de fin: {{educa.fechaFin}}</p></td></mat-grid-tile>
-                  <mat-grid-tile [colspan]="2" [rowspan]="1"><td><button mat-button routerLink="/porfolio/educacion/modificar/{{educa.id}}"><mat-icon>edit</mat-icon></button></td>
-                    <td><button mat-button (click)="borrar(educa.id)"><mat-icon>delete</mat-icon></button></td>
+                  <mat-grid-tile [colspan]="1" [rowspan]="1"><td>
+                      <span class="destacado">{{educa.titulo}}</span><br><br>
+                      {{educa.institucion}}<br><br>
+                      Fecha de inicio: {{educa.fechaInicio}} | Fecha de fin: {{educa.fechaFin}}
+                    </td>
+                    
+                  </mat-grid-tile>
+                  <mat-grid-tile [colspan]="2" [rowspan]="1"><td><button mat-button color="primary" routerLink="/porfolio/educacion/modificar/{{educa.id}}"><mat-icon>edit</mat-icon></button></td>
+                    <td><button mat-button color="warn" (click)="borrar(educa.id)"><mat-icon>delete</mat-icon></button></td>
                     </mat-grid-tile>
                 </mat-grid-list>
               </tr>

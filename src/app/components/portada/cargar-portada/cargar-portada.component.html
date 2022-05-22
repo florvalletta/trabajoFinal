@@ -1,35 +1,36 @@
+<!--Componente que no se muestra en el portfolio pero se implementó para la carga de los datos personales, la misma es accesible desde el navegador puesto que está ruteada-->
 <div class="body">
     <div>
         <div>
-            <div class="agregar-skill">
+            <div class="agregar-datos">
                 <h1>Agregar datos personales</h1>
-                <img src="../../../assets/img/subir.png" alt="Imagen de una flecha hacia arriba" width="25%"/>
+                <img src="https://github.com/florvalletta/PfImg/blob/main/subir.png?raw=true" alt="Imagen de una flecha hacia arriba" width="13%"/>
                 <div class="separacion">
             <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
                 <div class="form-group">
                         <mat-form-field class="tamanio" appearance="fill">
                             <mat-label>Nombre</mat-label>
-                            <input matInput name="nombre" [(ngModel)]="nombre" required>
+                            <input matInput name="nombre" [(ngModel)]="nombre" required matInput autocomplete="off">
                         </mat-form-field>
                         <mat-form-field class="tamanio" appearance="fill">
                             <mat-label>Apellido</mat-label>
-                            <input matInput name="apellido" [(ngModel)]="apellido" required>
+                            <input matInput name="apellido" [(ngModel)]="apellido" required matInput autocomplete="off">
                         </mat-form-field>
                         <mat-form-field class="tamanio" appearance="fill">
                             <mat-label>Foto de portada</mat-label>
-                            <input matInput name="fotoPortada" [(ngModel)]="fotoPortada" required>
+                            <input matInput name="fotoPortada" [(ngModel)]="fotoPortada" required matInput autocomplete="off">
                         </mat-form-field>
                         <mat-form-field class="tamanio" appearance="fill">
                             <mat-label>Foto de perfil</mat-label>
-                            <input matInput name="fotoPerfil" [(ngModel)]="fotoPerfil" required>
+                            <input matInput name="fotoPerfil" [(ngModel)]="fotoPerfil" required matInput autocomplete="off">
                         </mat-form-field>
                         <mat-form-field class="tamanio" appearance="fill">
                             <mat-label>Puesto actual</mat-label>
-                            <input matInput name="puestoActual" [(ngModel)]="puestoActual" required>
+                            <input matInput name="puestoActual" [(ngModel)]="puestoActual" required matInput autocomplete="off">
                         </mat-form-field>
                         <mat-form-field class="tamanio" appearance="fill">
                             <mat-label>Ubicación</mat-label>
-                            <input matInput name="ubicacion" [(ngModel)]="ubicacion" required>
+                            <input matInput name="ubicacion" [(ngModel)]="ubicacion" required matInput autocomplete="off">
                         </mat-form-field>
         </div>
             

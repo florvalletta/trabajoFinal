@@ -1,10 +1,9 @@
 
   <div class="body">
-    <div>
-        <div>
+    
             <div class="agregar-skill">
                 <h1>Agregar skill</h1>
-                <img src="../../../assets/img/subir.png" alt="Imagen de una flecha hacia arriba" width="25%"/>
+                <img src="https://github.com/florvalletta/PfImg/blob/main/subir.png?raw=true" alt="Imagen de una flecha hacia arriba" width="15%"/>
                 <div class="separacion">
             <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
                 <div class="form-group">
@@ -12,7 +11,7 @@
                         
                         <mat-form-field class="tamanio" appearance="fill">
                             <mat-label>Nombre de la skill</mat-label>
-                            <input matInput name="nombreSkill" [(ngModel)]="nombreSkill" required>
+                            <input matInput name="nombreSkill" [(ngModel)]="nombreSkill" required matInput autocomplete="off">
                         </mat-form-field>  
                     
                         
@@ -21,7 +20,7 @@
                     <div>
                         <mat-form-field class="tamanio" appearance="fill">
                             <mat-label>Porcentaje de progreso</mat-label>
-                            <input matInput type="number" name="valorPorcentaje" [(ngModel)]="valorPorcentaje" required>
+                            <input matInput type="number" name="valorPorcentaje" [(ngModel)]="valorPorcentaje" required matInput autocomplete="off">
                         </mat-form-field> 
                 
         </div>
@@ -33,7 +32,7 @@
     </div>
         </div>
     </div>
-</div>
+
 
 
   
