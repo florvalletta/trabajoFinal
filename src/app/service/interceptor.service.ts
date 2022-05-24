@@ -14,12 +14,11 @@ export class InterceptorService implements HttpInterceptor{
       
       
       let currentUser= this.autenticacionService.UsuarioAutenticado;
-      if(currentUser && currentUser.token)
+      if(currentUser && currentUser.accessToken)
       {
-        console.log("Interceptor está corriendo " + JSON.stringify(currentUser));
         req=req.clone({
         setHeaders:{
-           "Authorization": `Bearer ${currentUser.token}`
+           Authorization: `Bearer ${currentUser.accessToken}`
            }
         })
       }
