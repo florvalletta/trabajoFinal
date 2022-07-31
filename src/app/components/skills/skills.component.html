@@ -3,7 +3,7 @@
   <mat-toolbar>
     <span>Hard Skills & Soft Skills</span>
     <span class="example-spacer"></span>
-    <mat-icon color="primary" routerLink="/porfolio/skill/nueva">add</mat-icon>
+    <div *ngIf="isLogged"><mat-icon color="primary" routerLink="/porfolio/skill/nueva">add</mat-icon></div>
   </mat-toolbar>
   <mat-card class="tarjeta">
       <table class="table table-hover">
@@ -15,8 +15,10 @@
           aria-valuemin="0" aria-valuemax="100"></div>
         </div>
       </td>
+      <div *ngIf="isLogged">
       <td><button mat-button color="primary" routerLink="/porfolio/skill/modificar/{{ski.id}}"><mat-icon>edit</mat-icon></button></td>
       <td><button mat-button color="warn" (click)="borrar(ski.id)"><mat-icon>delete</mat-icon></button></td>
+    </div>
     </tr>
     </tbody>
     </table>

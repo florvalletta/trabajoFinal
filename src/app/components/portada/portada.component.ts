@@ -3,8 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { DatosPersonales } from 'src/app/models/datos-personales';
 //Service
 import { DatosPersonalesService } from 'src/app/service/datos-personales.service';
+import { TokenService } from 'src/app/service/token.service';
 //Angular Material
 import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-portada',
@@ -14,12 +16,23 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class PortadaComponent implements OnInit {
 
   datosPersonales: DatosPersonales[] = [];
+  isLogged = false;
+  nombreUsuario = '';
+  
 
   constructor(private datosPersonalesService: DatosPersonalesService,
-              private _snackBar: MatSnackBar) { }
+              private _snackBar: MatSnackBar,
+              private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.verDatosPersonales();
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+      this.nombreUsuario = this.tokenService.getUserName();
+    } else {
+      this.isLogged = false;
+      this.nombreUsuario = '';
+    }
   }
 
   verDatosPersonales(): void {
@@ -52,5 +65,6 @@ export class PortadaComponent implements OnInit {
       verticalPosition: 'top'
     });
   }
+
 
 }
