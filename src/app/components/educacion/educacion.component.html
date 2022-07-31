@@ -3,7 +3,7 @@
       <mat-toolbar>
         <span>Educación</span>
         <span class="example-spacer"></span>
-        <mat-icon color="primary" routerLink="/porfolio/educacion/nueva">add</mat-icon>
+        <div *ngIf="isLogged"><mat-icon color="primary" routerLink="/porfolio/educacion/nueva">add</mat-icon></div>
       </mat-toolbar>
       <mat-card class="tarjeta">
         <div *ngFor="let educa of educacion">
@@ -19,9 +19,9 @@
                     </td>
                     
                   </mat-grid-tile>
-                  <mat-grid-tile [colspan]="2" [rowspan]="1"><td><button mat-button color="primary" routerLink="/porfolio/educacion/modificar/{{educa.id}}"><mat-icon>edit</mat-icon></button></td>
+                  <div *ngIf="isLogged"><mat-grid-tile [colspan]="2" [rowspan]="1"><td><button mat-button color="primary" routerLink="/porfolio/educacion/modificar/{{educa.id}}"><mat-icon>edit</mat-icon></button></td>
                     <td><button mat-button color="warn" (click)="borrar(educa.id)"><mat-icon>delete</mat-icon></button></td>
-                    </mat-grid-tile>
+                    </mat-grid-tile></div>
                 </mat-grid-list>
               </tr>
             </tbody>

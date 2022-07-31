@@ -9,6 +9,7 @@ import { AcercaDe } from 'src/app/models/acerca-de';
 export class AcercaDeService {
 
   acercaDeURL = 'https://portfolio-mfv.herokuapp.com/acercaDe/';
+  //acercaDeURL = 'http://localhost:8080/acercaDe/';
 
   constructor(private httpClient: HttpClient) { }
 

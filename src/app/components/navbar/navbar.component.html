@@ -12,9 +12,16 @@
     <span class="example-spacer"></span>
     <button mat-button><a href="https://www.facebook.com/mfvalletta/"><img src="../../../assets/img/facebook.png" alt="Facebook" width="25" height="24"></a></button>
     <button mat-button><a href="https://www.linkedin.com/in/mflorenciavalletta/"><img src="../../../assets/img/linkedin.png" alt="LinkedIn" width="25" height="24"></a></button>
+    <ng-container *ngIf="!isLogged">
     <button routerLink="/login" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>logout</mat-icon>
+        <mat-icon>login</mat-icon>
       </button>
+    </ng-container>
+    <ng-container *ngIf="isLogged">
+      <button routerLink="/login" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="salir()">
+          <mat-icon>logout</mat-icon>
+        </button>
+    </ng-container>
 
 </mat-toolbar>
 </div>

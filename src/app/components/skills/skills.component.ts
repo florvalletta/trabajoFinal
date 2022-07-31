@@ -5,6 +5,8 @@ import { Skill } from 'src/app/models/skill';
 
 //Service
 import { SkillsService } from 'src/app/service/skills.service';
+import { TokenService } from 'src/app/service/token.service';
+
 
 //Angular Material
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -21,14 +23,24 @@ export class SkillsComponent implements OnInit {
   skill: Skill[] = [];
   nombreSkill: string = '';
   valorPorcentaje: number = null;
+  isLogged = false;
+  nombreUsuario = '';
 
   constructor(
     private skillsService: SkillsService, 
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private tokenService: TokenService
     ) { }
 
   ngOnInit(): void {
     this.verSkill();
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+      this.nombreUsuario = this.tokenService.getUserName();
+    } else {
+      this.isLogged = false;
+      this.nombreUsuario = '';
+    }
   }
 
     

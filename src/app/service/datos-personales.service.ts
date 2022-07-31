@@ -9,7 +9,8 @@ import { DatosPersonales } from '../models/datos-personales';
 export class DatosPersonalesService {
 
    
-  datosPersonalesURL = 'https://portfolio-mfv.herokuapp.com/datosPersonales/'
+  //datosPersonalesURL = 'https://portfolio-mfv.herokuapp.com/datosPersonales/'
+  datosPersonalesURL = 'http://localhost:8080/datosPersonales/'
 
   constructor(private httpClient: HttpClient) { 
     

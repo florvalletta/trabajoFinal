@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginUsuario } from 'src/app/models/login-usuario';
 import { AutenticacionService } from 'src/app/service/autenticacion.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-login',
@@ -10,36 +11,44 @@ import { AutenticacionService } from 'src/app/service/autenticacion.service';
 })
 export class LoginComponent implements OnInit {
 
-  form: FormGroup;
+  isLogged = false;
+  isLoginFail = false;
+  loginUsuario: LoginUsuario;
+  username: string;
+  password: string;
+  roles: string[] = [];
+  errMsj: string;
 
-  constructor(private formBuilder: FormBuilder, 
+  constructor( 
     private autenticacionService: AutenticacionService,
-    private router: Router) { 
-    this.form =this.formBuilder.group({
-      username: ['',[Validators.required]],
-      password: ['',[Validators.required]]
-    })
+    private router: Router,
+    private tokenService: TokenService) { 
+
   }
 
   ngOnInit(): void {
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+      this.isLoginFail = false;
+      this.roles = this.tokenService.getAuthorities();
+    }
   }
 
-  get Username() 
-  {
-    return this.form.get('username');
+  onLogin(): void {
+    this.loginUsuario = new LoginUsuario(this.username, this.password);
+    this.autenticacionService.login(this.loginUsuario).subscribe(
+      data => {
+        this.isLogged = true;
+        this.tokenService.setToken(data.token);
+        this.tokenService.setUserName(data.username);
+        this.tokenService.setAuthorities(data.authorities);
+        this.roles = data.authorities;
+        this.router.navigate(['/']);
+      },
+      err => {
+        this.isLogged = false;
+        this.errMsj = err.error.message;
+      }
+    );
   }
-
-  get Password() 
-  {
-    return this.form.get('password'); 
-  }
-
-  onEnviar(event:Event){
-    event.preventDefault;
-    this.autenticacionService.IniciarSesion(this.form.value).subscribe(data =>{
-      //console.log("DATA:" + JSON.stringify(data));
-      this.router.navigate(['/porfolio']);
-    })
-  }
-
 }

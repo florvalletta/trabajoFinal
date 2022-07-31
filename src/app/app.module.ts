@@ -34,13 +34,8 @@ import { CompartidoModule } from './modules/compartido/compartido.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 //Servicios
-import { DatosPersonalesService } from './service/datos-personales.service';
 import { InterceptorService } from './service/interceptor.service';
-import { AcercaDeService } from './components/acerca-de/service/acerca-de.service';
-import { EducacionService } from './service/educacion.service';
-import { ExperienciaService } from './service/experiencia.service';
-import { ProyectosService } from './service/proyectos.service';
-import { SkillsService } from './service/skills.service';
+
 
 
 
@@ -81,19 +76,7 @@ import { SkillsService } from './service/skills.service';
     CompartidoModule,
     ReactiveFormsModule
   ],
-  providers: [DatosPersonalesService,
-  { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
-  AcercaDeService,
-  { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
-  EducacionService,
-  { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
-  ExperienciaService,
-  { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
-  ProyectosService,
-  { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
-  SkillsService,
-  { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}  
-],
+  providers: [InterceptorService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

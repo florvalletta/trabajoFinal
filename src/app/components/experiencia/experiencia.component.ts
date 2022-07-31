@@ -3,8 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { Experiencia } from 'src/app/models/experiencia';
 //Service
 import { ExperienciaService } from 'src/app/service/experiencia.service';
+import { TokenService } from 'src/app/service/token.service';
 //Angular Material
 import { MatSnackBar } from '@angular/material/snack-bar';
+
+
 
 @Component({
   selector: 'app-experiencia',
@@ -14,13 +17,23 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ExperienciaComponent implements OnInit {
 
   experiencia: Experiencia[] = [];
+  isLogged = false;
+  nombreUsuario = '';
 
   constructor(private experienciaService: ExperienciaService,
-              private _snackBar: MatSnackBar) { }
+              private _snackBar: MatSnackBar,
+              private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.verExperiencia();
-  }
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+      this.nombreUsuario = this.tokenService.getUserName();
+    } else {
+      this.isLogged = false;
+      this.nombreUsuario = '';
+    }
+}
 
   verExperiencia(): void {
     this.experienciaService.list().subscribe(
@@ -31,7 +44,8 @@ export class ExperienciaComponent implements OnInit {
         
       })
   }
-
+  
+  
   borrar(id: number) {
     this.experienciaService.eliminar(id).subscribe(
       data => {
@@ -52,4 +66,5 @@ export class ExperienciaComponent implements OnInit {
       verticalPosition: 'top'
     });
   }
+
 }

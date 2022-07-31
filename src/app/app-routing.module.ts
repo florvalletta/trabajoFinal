@@ -8,10 +8,10 @@ import { LoginComponent } from './components/login/login.component';
 import { GuardGuard } from './service/guard.guard';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full'}, 
+  {path: '', redirectTo: 'porfolio', pathMatch: 'full'}, 
   {path: 'login', component: LoginComponent},
-  { path: 'porfolio', canActivate: [GuardGuard], loadChildren: () => import('./modules/porfolio/porfolio.module').then(x => x.PorfolioModule)},
-{path: '**', redirectTo:'login', pathMatch: "full"}
+  { path: 'porfolio', loadChildren: () => import('./modules/porfolio/porfolio.module').then(x => x.PorfolioModule)},
+{path: '**', redirectTo:'porfolio', pathMatch: "full"}
 ];
 
 @NgModule({
