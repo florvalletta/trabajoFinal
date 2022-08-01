@@ -3,8 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { AcercaDe } from 'src/app/models/acerca-de';
 //Service
 import { AcercaDeService } from './service/acerca-de.service';
+import { TokenService } from 'src/app/service/token.service';
 //Angular Material
 import { MatSnackBar } from '@angular/material/snack-bar';
+
+
 
 @Component({
   selector: 'app-acerca-de',
@@ -14,13 +17,23 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AcercaDeComponent implements OnInit {
 
   acercaDe: AcercaDe[] = [];
+  isLogged = false;
+  nombreUsuario = '';
 
   constructor(private acercaDeService: AcercaDeService,
-    	        private _snackBar: MatSnackBar
+    	        private _snackBar: MatSnackBar,
+              private tokenService: TokenService
     ) {}
 
   ngOnInit() {
     this.verAcercaDe();
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+      this.nombreUsuario = this.tokenService.getUserName();
+    } else {
+      this.isLogged = false;
+      this.nombreUsuario = '';
+    }
   }
  
 
@@ -55,4 +68,5 @@ export class AcercaDeComponent implements OnInit {
       verticalPosition: 'top'
     });
   }
+
 }

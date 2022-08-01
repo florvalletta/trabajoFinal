@@ -8,7 +8,8 @@ import { Skill } from '../models/skill';
 })
 export class SkillsService {
 
-  skillURL = 'http://localhost:8080/skill/';
+  skillURL = 'https://portfolio-fv.herokuapp.com/skill/';
+  //skillURL = 'http://localhost:8080/skill/';
 
   constructor(private httpClient: HttpClient) { }
 

@@ -23,26 +23,26 @@ import { SkillsComponent } from 'src/app/components/skills/skills.component';
 import { GuardGuard } from 'src/app/service/guard.guard';
 
 const routes: Routes = [
-  {path: '', component: PorfolioComponent, canActivate: [GuardGuard], children:
-   [{path: '', component:PortadaComponent, canActivate: [GuardGuard]},
-    {path: 'datosPersonales', component: PortadaComponent, canActivate: [GuardGuard]},
-    {path: 'datosPersonales/nueva', component: CargarPortadaComponent, canActivate: [GuardGuard]},
-    {path: 'datosPersonales/modificar/:id', component: EditarPortadaComponent, canActivate: [GuardGuard]},
-    {path: 'acercaDe', component: AcercaDeComponent, canActivate: [GuardGuard]},
-    {path: 'acercaDe/nueva', component: CargarAcercaDeComponent, canActivate: [GuardGuard] },
-    {path: 'acercaDe/modificar/:id', component: EditarAcercaDeComponent, canActivate: [GuardGuard] },
-    {path: 'educacion', component: EducacionComponent, canActivate: [GuardGuard]},
-    {path: 'educacion/nueva', component: CargarEducacionComponent, canActivate: [GuardGuard]},
-    {path: 'educacion/modificar/:id', component: EditarEducacionComponent, canActivate: [GuardGuard]},
-    {path: 'experiencia', component: ExperienciaComponent, canActivate: [GuardGuard]},
-    {path: 'experiencia/nueva', component: CargarExperienciaComponent, canActivate: [GuardGuard]},
-    {path: 'experiencia/modificar/:id', component: EditarExperienciaComponent, canActivate: [GuardGuard]},
-    {path: 'proyectos', component: ProyectosComponent, canActivate: [GuardGuard]},
-    {path: 'proyectos/nueva', component: CargarProyectoComponent, canActivate: [GuardGuard]},
-    {path: 'proyectos/modificar/:id', component: ModificarProyectoComponent, canActivate: [GuardGuard]},
-    {path: 'skill', component: SkillsComponent, canActivate: [GuardGuard]},
-    {path: 'skill/nueva', component: CargarSkillComponent, canActivate: [GuardGuard]},
-    {path: 'skill/modificar/:id', component: EditarSkillComponent, canActivate: [GuardGuard]}
+  {path: '', component: PorfolioComponent, children:
+   [{path: '', component:PortadaComponent },
+    {path: 'datosPersonales', component: PortadaComponent},
+    {path: 'datosPersonales/nueva', component: CargarPortadaComponent},
+    {path: 'datosPersonales/modificar/:id', component: EditarPortadaComponent}, //canActivate: [GuardGuard]},
+    {path: 'acercaDe', component: AcercaDeComponent},
+    {path: 'acercaDe/nueva', component: CargarAcercaDeComponent },
+    {path: 'acercaDe/modificar/:id', component: EditarAcercaDeComponent},
+    {path: 'educacion', component: EducacionComponent},
+    {path: 'educacion/nueva', component: CargarEducacionComponent},
+    {path: 'educacion/modificar/:id', component: EditarEducacionComponent},
+    {path: 'experiencia', component: ExperienciaComponent},
+    {path: 'experiencia/nueva', component: CargarExperienciaComponent},
+    {path: 'experiencia/modificar/:id', component: EditarExperienciaComponent},
+    {path: 'proyectos', component: ProyectosComponent},
+    {path: 'proyectos/nueva', component: CargarProyectoComponent},
+    {path: 'proyectos/modificar/:id', component: ModificarProyectoComponent},
+    {path: 'skill', component: SkillsComponent},
+    {path: 'skill/nueva', component: CargarSkillComponent},
+    {path: 'skill/modificar/:id', component: EditarSkillComponent}
   ]},
     {path: '**', redirectTo:'porfolio', pathMatch:'full'}
 
