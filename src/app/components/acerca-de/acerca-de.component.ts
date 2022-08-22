@@ -6,6 +6,11 @@ import { AcercaDeService } from './service/acerca-de.service';
 import { TokenService } from 'src/app/service/token.service';
 //Angular Material
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatDialog} from '@angular/material/dialog';
+import { EditarAcercaDeComponent } from './editar-acerca-de/editar-acerca-de.component';
+import { DatosPersonales } from 'src/app/models/datos-personales';
+import { DatosPersonalesService } from 'src/app/service/datos-personales.service';
+
 
 
 
@@ -17,12 +22,16 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AcercaDeComponent implements OnInit {
 
   acercaDe: AcercaDe[] = [];
+  datosPersonales: DatosPersonales[] = [];
   isLogged = false;
   nombreUsuario = '';
+  
 
   constructor(private acercaDeService: AcercaDeService,
     	        private _snackBar: MatSnackBar,
-              private tokenService: TokenService
+              private tokenService: TokenService,
+              public dialog: MatDialog,
+              private datosPersonalesService: DatosPersonalesService
     ) {}
 
   ngOnInit() {
@@ -34,6 +43,7 @@ export class AcercaDeComponent implements OnInit {
       this.isLogged = false;
       this.nombreUsuario = '';
     }
+    this.verDatosPersonales();
   }
  
 
@@ -41,6 +51,16 @@ export class AcercaDeComponent implements OnInit {
     this.acercaDeService.list().subscribe(
       data => {
         this.acercaDe = data;
+      },
+      err => {
+        console.log(err);
+      })
+  }
+
+  verDatosPersonales(): void {
+    this.datosPersonalesService.list().subscribe(
+      data => {
+        this.datosPersonales = data;
       },
       err => {
         console.log(err);
@@ -68,5 +88,18 @@ export class AcercaDeComponent implements OnInit {
       verticalPosition: 'top'
     });
   }
+  
+  openDialog() {
+    const dialogRef = this.dialog.open(EditarAcercaDeComponent);
 
-}
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  }
+  
+
+  
+
+
+

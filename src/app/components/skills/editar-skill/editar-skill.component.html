@@ -1,4 +1,39 @@
-<div class="body">
+<div class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modificar Skill</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="modificar-skill">
+                <h1>Modificar Skill</h1>
+                <img src="https://github.com/florvalletta/PfImg/blob/main/editar.png?raw=true" alt="Imagen de un usuario" width="15%"/>    
+        <div class="separacion">
+            <form (ngSubmit)="modificar()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <mat-form-field class="tamanio" appearance="fill">
+                        <mat-label>Nombre skill</mat-label>
+                        <input matInput name="nombreSkill" [(ngModel)]="skill.nombreSkill" required>
+                      </mat-form-field>
+                <mat-form-field class="tamanio" appearance="fill">
+                    <mat-label>Porcentaje alcanzado</mat-label>
+                    <input matInput name="valorPorcentaje" [(ngModel)]="skill.valorPorcentaje" required>
+                  </mat-form-field>    
+            </div>   
+        </form>
+        </div>
+    </div>
+</div>
+</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button mat-raised-button type="submit" [disabled]="!f.valid">Editar</button>
+        </div>
+      </div>
+   
+<!-- <div class="body">
     <div class="container" *ngIf="skill">
 <div class="row-mt-5">
         <div class="col-md-4 mx-auto">
@@ -23,4 +58,4 @@
         </div>
     </div>
 </div>
-</div>
+</div> -->

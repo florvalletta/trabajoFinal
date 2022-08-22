@@ -12,6 +12,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatDialogModule} from '@angular/material/dialog';
 
 //Servicios
 import { DatosPersonalesService } from 'src/app/service/datos-personales.service';
@@ -21,6 +23,7 @@ import { EducacionService } from 'src/app/service/educacion.service';
 import { ExperienciaService } from 'src/app/service/experiencia.service';
 import { ProyectosService } from 'src/app/service/proyectos.service';
 import { SkillsService } from 'src/app/service/skills.service';
+
 
 
 @NgModule({
@@ -36,7 +39,9 @@ import { SkillsService } from 'src/app/service/skills.service';
     MatIconModule,
     MatSnackBarModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
   ],
   exports: [
     CommonModule,
@@ -49,7 +54,9 @@ import { SkillsService } from 'src/app/service/skills.service';
     MatIconModule,
     MatSnackBarModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   providers: [
     DatosPersonalesService,

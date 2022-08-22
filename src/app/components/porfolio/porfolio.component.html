@@ -1,2 +1,63 @@
-<app-navbar></app-navbar>
-<router-outlet></router-outlet>
+<div class="row">
+    <header class="header">
+       <div class="menu">        
+            <div class="col-xs-12 col-sm-6 col-md-4 row-lg-4">
+                <img src="../../../assets/img/APLogo-20-20.png" id="logoPortada"></div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-5 row-xl-12"></div>
+                <div class="col-xs-12 col-sm-6 col-md-4 row-lg-2">
+                <a href="https://www.facebook.com/mfvalletta/"><img src="../../../assets/img/facebook.png" alt="Facebook" width="50" height="50"></a>
+                <a href="https://www.linkedin.com/in/mflorenciavalletta/"><img src="../../../assets/img/linkedin.png" alt="LinkedIn" width="50" height="50"></a>
+                <a href="https://github.com/florvalletta"><img src="../../../assets/img/25231.png" alt="Github" width="50" height="50"></a>
+                <ng-container *ngIf="!isLogged">
+                    <button routerLink="/login" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+                        <mat-icon id="sesion">login</mat-icon>
+                      </button>
+                    </ng-container>
+                    <ng-container *ngIf="isLogged">
+                      <button routerLink="/login" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="salir()">
+                          <mat-icon id="sesion">logout</mat-icon> 
+                        </button>
+                    </ng-container>
+            </div>
+            </div>
+        
+        <div class="texto-principal">
+            
+        </div>
+    </header>
+
+    <section class="section">
+        <!-- <aside class="aside">
+            <div class="publicidad">
+                <div *ngFor="let datos of datosPersonales">
+                    <img src={{datos.fotoPerfil}}>
+                    <h3>{{datos.nombre}} {{datos.apellido}}</h3>
+                    <p>{{datos.puestoActual}}</p>
+                    <p>Contactar</p></div>
+                    </div>
+        </aside> -->
+        <div class="articulos">
+            <article class="article">
+                <app-acerca-de></app-acerca-de>
+                </article>
+                <article class="article">
+                    <app-experiencia></app-experiencia>
+            </article>
+            <article class="article">
+                <app-educacion></app-educacion>
+            </article>
+            <article class="article">
+                <app-skills></app-skills>
+            </article>
+            <article class="article">
+                <app-proyectos></app-proyectos>
+            </article>
+            <nav class="navegacion"></nav>
+        </div>
+    </section>
+    <footer class="footer">
+        <nav class="pie">
+            <a href="#">Desarrollado por María Florencia Valletta para Argentina Programa</a>
+        </nav>
+    </footer>
+

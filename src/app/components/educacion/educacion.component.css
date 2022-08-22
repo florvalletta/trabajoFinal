@@ -1,6 +1,11 @@
 .logoEducacion {
-    max-width: 100px;
-    max-height: 100px;
+    background: white;
+        flex: 1 1 auto;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        max-width: 150px;
+        max-height: 150px;
 }
 .destacado {
     font-size: 14px;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 //Model
 import { Skill } from 'src/app/models/skill';
@@ -6,6 +6,10 @@ import { Skill } from 'src/app/models/skill';
 import { SkillsService } from 'src/app/service/skills.service';
 //Angular Material
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+import { EditarSkillComponent } from '../editar-skill/editar-skill.component';
 
 @Component({
   selector: 'app-cargar-skill',
@@ -24,6 +28,7 @@ export class CargarSkillComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+   
   }
 
   onCreate(): void {
@@ -31,11 +36,11 @@ export class CargarSkillComponent implements OnInit {
     this.skillsService.save(skill).subscribe(
       data => {
               this.exito(),
-              this.router.navigate(['/porfolio/skill'])},
+              this.router.navigate(['/porfolio'])},
       err => {
               this.error(),
-              this.router.navigate(['/porfolio/skill'])}
-    )
+              this.router.navigate(['/porfolio'])}
+    );
 }
 
 //Método para cerrar el formulario sin guardar cambios
@@ -60,4 +65,6 @@ exito() {
     verticalPosition: 'top'
   });
 }
+
+
 }

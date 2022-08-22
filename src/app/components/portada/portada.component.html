@@ -1,23 +1,5 @@
-<div class="container">
-  
-<div *ngFor="let datos of datosPersonales">
-  <div class="separacion"></div>
-  <mat-card>
-    <mat-grid-list cols="4" rowHeight="50px">
-       
-      <mat-grid-tile [colspan]="4" [rowspan]="5"><img src="{{datos.fotoPortada}}"></mat-grid-tile>
-      <mat-grid-tile [colspan]="1" [rowspan]="4" class="alineacion foto-perfil"><img src="{{datos.fotoPerfil}}"></mat-grid-tile>
-      <mat-grid-tile [colspan]="2" [rowspan]="1"><span class="destacado">{{datos.nombre}} {{datos.apellido}}</span></mat-grid-tile>
-      <div *ngIf="isLogged"><mat-grid-tile [colspan]="1" [rowspan]="4"><button mat-button color="primary" routerLink="/porfolio/datosPersonales/modificar/{{datos.id}}"><mat-icon>edit</mat-icon></button></mat-grid-tile></div>
-            <mat-grid-tile [colspan]="2" [rowspan]="1">{{datos.puestoActual}}</mat-grid-tile>
-            <mat-grid-tile [colspan]="2" [rowspan]="1">{{datos.ubicacion}}</mat-grid-tile>
-            <mat-grid-tile [colspan]="2" [rowspan]="1"><a href="mailto:mflorenciavalletta@gmail.com"><button mat-raised-button color="primary"><mat-icon>email</mat-icon> Contactar</button></a></mat-grid-tile>
-                   
-         
-    </mat-grid-list>
-  </mat-card>
-  </div>
-  </div>
+<img src="https://github.com/florvalletta/PfImg/blob/main/stefan-stefancik--g7axSVst6Y-unsplash.jpg?raw=true">
+
     
   
     

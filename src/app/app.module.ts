@@ -35,9 +35,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 //Servicios
 import { InterceptorService } from './service/interceptor.service';
+import { HeaderComponent } from './components/header/header.component';
+import { LogoComponent } from './components/logo/logo.component';
+import { RedesSocialesComponent } from './components/redes-sociales/redes-sociales.component';
+import { FotoPortadaComponent } from './components/foto-portada/foto-portada.component';
 
-
-
+//NgCircleProgressModule
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 
 
@@ -65,6 +69,10 @@ import { InterceptorService } from './service/interceptor.service';
     EditarSkillComponent,
     PorfolioComponent,
     NavbarComponent,
+    HeaderComponent,
+    LogoComponent,
+    RedesSocialesComponent,
+    FotoPortadaComponent,
 
   ],
   imports: [
@@ -74,7 +82,8 @@ import { InterceptorService } from './service/interceptor.service';
     HttpClientModule,
     BrowserAnimationsModule,
     CompartidoModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgCircleProgressModule.forRoot({})
   ],
   providers: [InterceptorService],
   bootstrap: [AppComponent],

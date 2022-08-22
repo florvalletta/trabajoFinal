@@ -1,27 +1,38 @@
-<div class="container body">
-<div>
+
+  <div class="row">
   <mat-toolbar>
     <span>Hard Skills & Soft Skills</span>
     <span class="example-spacer"></span>
-    <div *ngIf="isLogged"><mat-icon color="primary" routerLink="/porfolio/skill/nueva">add</mat-icon></div>
+    <div *ngIf="isLogged"><button mat-button data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <mat-icon color="primary">add</mat-icon>
+    </button></div>
   </mat-toolbar>
-  <mat-card class="tarjeta">
-      <table class="table table-hover">
-        <tbody>
-      <tr *ngFor="let ski of skill">
-      <td><p><h6 class="destacado" name="nombreSkill">{{ski.nombreSkill}}</h6> 
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: {{ski.valorPorcentaje}}%" attr.aria-valuenow="{{ski.valorPorcentaje}}" 
-          aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-      </td>
-      <div *ngIf="isLogged">
-      <td><button mat-button color="primary" routerLink="/porfolio/skill/modificar/{{ski.id}}"><mat-icon>edit</mat-icon></button></td>
-      <td><button mat-button color="warn" (click)="borrar(ski.id)"><mat-icon>delete</mat-icon></button></td>
+  <span class="separacion"></span>
+ 
+      
+      <div class="col" *ngFor="let ski of skills">
+        <div class="row-xs-12 row-sm-6 row-md-4 row-lg-6">
+      <span id="alineacionSpinners" name="nombreSkill">{{ski.nombreSkill}}</span></div>
+      <!-- /*<div class="row-xs-12 row-sm-6 row-md-4 row-lg-6" id="alineacionSpinners"><mat-spinner mode="determinate" value="{{ski.valorPorcentaje}}"></mat-spinner></div> -->
+      <div [attr.percent]="ski.valorPorcentaje">
+      <circle-progress
+      [percent]= "ski.valorPorcentaje"
+      [radius]="100"
+      [outerStrokeWidth]="16"
+      [innerStrokeWidth]="2"
+      [outerStrokeColor]="'#554994'"
+      [innerStrokeColor]="'#554994'"
+      [animation]="true"
+      [animationDuration]="300"
+></circle-progress>
+</div>
+      <div class="row-xs-12 row-sm-6 row-md-4 row-lg-6" *ngIf="isLogged">
+      <button mat-button color="primary" (click)="openModalWithComponent(ski)"><mat-icon>edit</mat-icon></button>
+      <button mat-button color="warn" (click)="borrar(ski.id)"><mat-icon>delete</mat-icon></button>
     </div>
-    </tr>
-    </tbody>
-    </table>
-  </mat-card>
+  </div> 
+
 </div>
-</div>
+
+
+

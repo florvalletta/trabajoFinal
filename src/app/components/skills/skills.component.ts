@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 //Model
 import { Skill } from 'src/app/models/skill';
@@ -10,6 +10,12 @@ import { TokenService } from 'src/app/service/token.service';
 
 //Angular Material
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { CargarSkillComponent } from './cargar-skill/cargar-skill.component';
+import { Router } from '@angular/router';
+import { EditarSkillComponent } from './editar-skill/editar-skill.component';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+
 
 
 @Component({
@@ -19,17 +25,21 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class SkillsComponent implements OnInit {
 
-  
-  skill: Skill[] = [];
+  skills: Skill[] = [];
   nombreSkill: string = '';
   valorPorcentaje: number = null;
   isLogged = false;
   nombreUsuario = '';
+  @Input() personaCargadaId: number;
+  bsModalRef: BsModalRef;
+  bsDelModalRef: BsModalRef;
 
   constructor(
     private skillsService: SkillsService, 
     private _snackBar: MatSnackBar,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private modalService: BsModalService,
+    private delModalService: BsModalService
     ) { }
 
   ngOnInit(): void {
@@ -43,11 +53,31 @@ export class SkillsComponent implements OnInit {
     }
   }
 
+  openModalWithComponent(skillToEdit: Skill) {
+    console.log("Se va a modificar:", skillToEdit, this.personaCargadaId)
+
+  // Setup initial state for modal
+  const initialState = {
+    personaCargadaId: this.personaCargadaId,
+    skill: skillToEdit,
+    listaSkills: this.skills
+  };
+
+  // Open up the modal
+  this.bsModalRef = this.modalService.show(EditarSkillComponent, { initialState });
+  this.bsModalRef.content.closeBtnName = 'Close';
+
+  // Subscribe to modal's response
+  this.bsModalRef.content.refreshEvent.subscribe(() => {
+    this.verSkill()
+  })
+}
+
     
   verSkill(): void {
     this.skillsService.list().subscribe(
       data => {
-        this.skill = data;
+        this.skills = data;
       },
       err => {
         alert(err);

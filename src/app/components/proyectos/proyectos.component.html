@@ -1,30 +1,26 @@
-<div class="container">
-<div>
+<div class="row">
   <mat-toolbar>
     <span>Proyectos</span>
     <span class="example-spacer"></span>
     <div *ngIf="isLogged"><mat-icon color="primary" routerLink="/porfolio/proyectos/nueva">add</mat-icon></div>
   </mat-toolbar>
-  <mat-card class="tarjeta">
+  <span class="separacion"></span>
    
-    <mat-card class="example-card" *ngFor="let proyecto of proyectos">
-      <mat-card-title-group>
-        <mat-card-title><h2><a href="{{proyecto.linkProyecto}}">{{proyecto.nombreProyecto}}</a></h2> 
-        </mat-card-title>
-        <mat-card-subtitle>{{proyecto.descripcionProyecto}}</mat-card-subtitle>
-        <img mat-card-md-image src={{proyecto.imagenProyecto}} >
-      </mat-card-title-group>
-      <mat-card-content>
-        Fecha de realización: {{proyecto.fechaRealizacion}}
-      </mat-card-content>
-      <mat-divider inset></mat-divider>
-  <mat-card-actions>
-    <div *ngIf="isLogged"><button mat-button color="primary" routerLink="/porfolio/proyectos/modificar/{{proyecto.id}}"><mat-icon>edit</mat-icon></button>
+    <div class="row" *ngFor="let proyecto of proyectos">
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><img src={{proyecto.imagenProyecto}} ></div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-6"><a href="{{proyecto.linkProyecto}}"><h2>{{proyecto.nombreProyecto}}</h2></a> 
+        
+        <p>{{proyecto.descripcionProyecto}}</p>
+        
+      
+        <p>Fecha de realización: {{proyecto.fechaRealizacion}}</p></div>
+      
+      
+  
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2" *ngIf="isLogged"><button mat-button color="primary" routerLink="/porfolio/proyectos/modificar/{{proyecto.id}}"><mat-icon>edit</mat-icon></button>
           <button mat-button color="warn" (click)="borrar(proyecto.id)"><mat-icon>delete</mat-icon></button></div>
-  </mat-card-actions>
-    </mat-card>
  
-  </mat-card>
+ 
     
   </div>
-  </div>
+ 

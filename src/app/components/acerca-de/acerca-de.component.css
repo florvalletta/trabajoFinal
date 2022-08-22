@@ -1,3 +1,10 @@
-
+.destacado {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(95, 38, 168);
+}
+img{
+    border-radius: 50%;
+}
 
 

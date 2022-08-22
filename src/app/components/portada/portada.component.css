@@ -1,21 +1,17 @@
-.alineacion {
-    margin-top: 0.625rem;
+.aside{
+    background:  #f7f7f7;
+    flex: 1 1 auto;
+    flex-flow: column nowrap;
 }
-
-.foto-perfil{
-    max-width: 12.5rem;
-    max-height: 12.5rem;
-    margin-top: 0.625rem;
-    padding: 0.625rem;
-    
-}
-
-.separacion {
-    padding-top: 0.625rem;
-}
-
-.destacado {
-    font-weight: bold;
-    font-size: 1.125rem;
-    color: rgb(95, 38, 168);
+    .publicidad{
+        background: #f7f7f7;
+        flex: 1 1 auto;
+        text-align: center;
+    }
+    .publicidad img{
+        border-radius: 50%;
+    }
+img {
+    width: 100%;
+    height: 600px;
 }
